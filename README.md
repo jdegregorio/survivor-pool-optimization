@@ -18,8 +18,22 @@ The strategy even becomes more interesting when you consider the following:
   
   
 ## Strategy
+The high-level strategy involves utilizing a genetic algorithm to evolve a winning strategy.  Different stratigic "genes" will be designed to prioritize different types of information in the pick selection process.  Each strategy will be simulated in a back-test using historical data.
 
-
-
-
+The core data utilized by the strategy will include the following:
+  * Projected win probabilities of each game for the rest of the season (using ELO method) including strengh-of-schedule look-ahead.
+  * Survivor pick distribution data (poll data available before each week starts)
+  * Pool competition data (i.e. how many remaining to beat, what teams do they have left to pick from, etc.)
+  
+The "genes" that will be used to differentiate strategies include these attributes:
+  * Visibility (i.e. how many weeks ahead to consider in planning)
+  * Aggression (i.e. how aggressively should the strategy try to differentiate from the crowd)
+  * Diversity (i.e. for multi-pick strategies, how similar/different should picks be for a given week)
+  * ELO Adjustment Rate (i.e. are team's relative strengths adjusted quickly or slowely based on recent outcomes)
+  
+  *Each of the above genes to be defined/adjusted on a week-to-week basis (i.e. start the season with high visibility, and end the season with low visibility*
+  
 ## Data Sources
+
+Historical NFL Game Results:  https://www.pro-football-reference.com/
+Historical Surivor Pool Pick Distributions:  https://www.survivorgrid.com/
