@@ -34,6 +34,5 @@ The "genes" that will be used to differentiate strategies include these attribut
   *Each of the above genes to be defined/adjusted on a week-to-week basis (i.e. start the season with high visibility, and end the season with low visibility*
   
 ## Data Sources
-
-Historical NFL Game Results:  https://www.pro-football-reference.com/
-Historical Surivor Pool Pick Distributions:  https://www.survivorgrid.com/
+  * Historical NFL Game Results:  https://www.pro-football-reference.com/
+  * Historical Surivor Pool Pick Distributions:  https://www.survivorgrid.com/
