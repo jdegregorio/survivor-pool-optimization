@@ -14,7 +14,7 @@ library(feather)
 library(readr)
 
 # Source functions
-source(here("R", "scrape_pfr.R"))
+source(here("R", "funs_scrape_pfr.R"))
 
 # Define parameters
 season.start <- 2000

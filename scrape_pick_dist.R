@@ -15,10 +15,10 @@ library(feather)
 library(readr)
 
 # Source functions
-source(here("R", "scrape_survgrid.R"))
+source(here("R", "funs_scrape_survgrid.R"))
 
 # Define parameters
-season.start <- 2017
+season.start <- 2010
 season.current <- if_else(month(Sys.Date()) >= 8, year(Sys.Date()), year(Sys.Date()) - 1)
 
 # IDENTIFY MISSING DATA -------------------------------------------------------
@@ -26,31 +26,37 @@ season.current <- if_else(month(Sys.Date()) >= 8, year(Sys.Date()), year(Sys.Dat
 # Load the latest game result saved data
 df.dist.existing <- read_feather(here("output", "pickdist.feather"))
 
-# Summarize available data
-seasons.available <- df.dist.existing$season %>% unique()
-seasons.available <- seasons.available[!seasons.available == season.current]
-
-# Summarize required seasons
-seasons.required <- season.start:season.current
-seasons.required <- seasons.required[!seasons.required %in% seasons.available]
+df.available <- df.dist.existing %>%
+  select(season, week) %>%
+  distinct()
 
 
 # SCRAPE RAW DATA -------------------------------------------------------------
 
+# Scrape data
 grid.dist <-
   crossing(
-    season = seasons.required,
-    week = 1:2
+    season = season.start:season.current,
+    week = 1:17
   ) %>%
+  anti_join(df.available, by = c("season", "week")) %>%
   mutate(
     url = generate_url_survgrid(season, week),
-    results = map(url, scrape_survgrid, delay = 3)
+    results = map(url, possibly(scrape_survgrid, otherwise = NA), delay = 3)
   )
+
+# Filter for sucessfully scraped pages
+grid.dist <- grid.dist %>%
+  mutate(class = map_chr(results, class)) %>%
+  filter(class == "data.frame")
+
+# End script if no new data is available
+if (nrow(grid.dist) == 0) {stop("No new data is available")}
 
 
 # CLEAN RESULTS ---------------------------------------------------------------
 
-df.dist.new <- 
+df.dist.new <-
   grid.dist %>%
   unnest(results) %>%
   mutate(
@@ -66,9 +72,9 @@ df.dist.new <-
 # JOIN NEW/EXISTING GAME DATA -------------------------------------------------
 
 # Bind dataframes
-df.dist <- 
+df.dist <-
   bind_rows(
-    df.dist.existing %>% mutate(priority = 2), 
+    df.dist.existing %>% mutate(priority = 2),
     df.dist.new %>% mutate(priority = 1)
   )
 
@@ -80,7 +86,6 @@ df.dist <- df.dist %>%
   slice(1) %>%
   ungroup() %>%
   select(-priority)
-
 
 # SAVE DATA -------------------------------------------------------------------
 
