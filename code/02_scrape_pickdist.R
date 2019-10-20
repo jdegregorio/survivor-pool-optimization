@@ -15,16 +15,20 @@ library(feather)
 library(readr)
 
 # Source functions
-source(here("R", "funs_scrape_survgrid.R"))
+source(here("code", "funs_scrape_pickdist.R"))
+
+# Load lookup table
+lu.teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
 
 # Define parameters
-season.start <- 2010
+# season.start <- 2010
 season.current <- if_else(month(Sys.Date()) >= 8, year(Sys.Date()), year(Sys.Date()) - 1)
+season.start <- season.current
 
 # IDENTIFY MISSING DATA -------------------------------------------------------
 
 # Load the latest game result saved data
-df.dist.existing <- read_feather(here("output", "pickdist.feather"))
+df.dist.existing <- read_feather(here("data", "output", "pickdist.feather"))
 
 df.available <- df.dist.existing %>%
   select(season, week) %>%
@@ -65,8 +69,13 @@ df.dist.new <-
     win_prob = str_remove_all(win_prob, "\\%") %>% as.numeric() / 100,
     expected_value = as.numeric(expected_value)
   ) %>%
+  left_join(
+    lu.teams %>% select(team = team_short, team_master = team_master_short), 
+    by = "team"
+  ) %>%
+  mutate(team = team_master) %>%
+  select(-team_master) %>%
   select(season, week, team, pick_pct, win_prob, expected_value)
-
 
 
 # JOIN NEW/EXISTING GAME DATA -------------------------------------------------
@@ -78,7 +87,6 @@ df.dist <-
     df.dist.new %>% mutate(priority = 1)
   )
 
-
 # Remote duplicates, take most recent
 df.dist <- df.dist %>%
   group_by(season, week, team) %>%
@@ -89,5 +97,5 @@ df.dist <- df.dist %>%
 
 # SAVE DATA -------------------------------------------------------------------
 
-write_feather(df.dist, here("output", "pickdist.feather"))
-write_csv(df.dist, here("output", "pickdist.csv"))
+write_feather(df.dist, here("data", "output", "pickdist.feather"))
+write_csv(df.dist, here("data", "output", "pickdist.csv"))

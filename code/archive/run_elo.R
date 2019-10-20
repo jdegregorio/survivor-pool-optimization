@@ -11,11 +11,11 @@ library(feather)
 library(readr)
 
 # Source functions
-source(here("R", "funs_elo.R"))
+source(here("code", "funs_elo.R"))
 
 # Load data
-df.games <- feather::read_feather(here::here("output", "games.feather"))
-lu.teams <- readr::read_csv(here::here("data", "team_lookup.csv"))
+df.games <- feather::read_feather(here::here("data", "output", "games.feather"))
+lu.teams <- readr::read_csv(here::here("data", "lookup", "team_lookup.csv"))
 
 # Define parameters
 factor.k = 20.0        # ELO adjustment rate

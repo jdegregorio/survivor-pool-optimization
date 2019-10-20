@@ -16,7 +16,9 @@ Indianapolis Colts,IND,Indianapolis Colts,IND
 Jacksonville Jaguars,JAX,Jacksonville Jaguars,JAX
 Kansas City Chiefs,KC,Kansas City Chiefs,KC
 Los Angeles Chargers,LAC,Los Angeles Chargers,LAC
+San Diego Chargers,SD,Los Angeles Chargers,LAC
 Los Angeles Rams,LAR,Los Angeles Rams,LAR
+St. Louis Rams,STL,Los Angeles Rams,LAR
 Miami Dolphins,MIA,Miami Dolphins,MIA
 Minnesota Vikings,MIN,Minnesota Vikings,MIN
 New England Patriots,NE,New England Patriots,NE
@@ -26,10 +28,9 @@ New York Jets,NYJ,New York Jets,NYJ
 Oakland Raiders,OAK,Oakland Raiders,OAK
 Philadelphia Eagles,PHI,Philadelphia Eagles,PHI
 Pittsburgh Steelers,PIT,Pittsburgh Steelers,PIT
-San Diego Chargers,SD,Los Angeles Chargers,LAC
 San Francisco 49ers,SF,San Francisco 49ers,SF
 Seattle Seahawks,SEA,Seattle Seahawks,SEA
-St. Louis Rams,STL,Los Angeles Rams,LAR
 Tampa Bay Buccaneers,TB,Tampa Bay Buccaneers,TB
 Tennessee Titans,TEN,Tennessee Titans,TEN
 Washington Redskins,WAS,Washington Redskins,WAS
+Washington Redskins,WSH,Washington Redskins,WAS

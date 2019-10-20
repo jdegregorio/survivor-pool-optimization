@@ -15,6 +15,9 @@ library(feather)
 library(readr)
 library(httr)
 
+# Load lookup table
+lu.teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
+
 # Define Parameters
 season.current <- if_else(month(Sys.Date()) >= 8, year(Sys.Date()), year(Sys.Date()) - 1)
 
@@ -36,6 +39,16 @@ df.elo <-
   content(response, type = "text", encoding = "UTF-8") %>%
   read_csv() %>%
   mutate(season = as.integer(season)) %>%
+  left_join(
+    lu.teams %>% select(team1 = team_short, team1_master = team_master_short), 
+    by = "team1"
+  ) %>%
+  left_join(
+    lu.teams %>% select(team2 = team_short, team2_master = team_master_short), 
+    by = "team2"
+  ) %>%
+  mutate(team1 = team1_master, team2 = team2_master) %>%
+  select(-team1_master, -team2_master) %>%
   select(
     season,
     date,
@@ -50,5 +63,5 @@ df.elo <-
 
 # SAVE DATA -------------------------------------------------------------------
 
-write_feather(df.elo, here("output", "elo_probs_current.feather"))
-write_csv(df.elo, here("output", "elo_probs_current.csv"))
+write_feather(df.elo, here("data", "output", "elo_prob.feather"))
+write_csv(df.elo, here("data", "output", "elo_prob.csv"))
