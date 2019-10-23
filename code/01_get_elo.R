@@ -38,7 +38,11 @@ response <- GET(url, ua, timeout(60))
 df.elo <- 
   content(response, type = "text", encoding = "UTF-8") %>%
   read_csv() %>%
-  mutate(season = as.integer(season)) %>%
+  mutate(
+    season = as.integer(season),
+    date_rounded = round_date(date, unit = "week"),
+    week = dense_rank(date_rounded)
+  ) %>%
   left_join(
     lu.teams %>% select(team1 = team_short, team1_master = team_master_short), 
     by = "team1"
@@ -51,6 +55,7 @@ df.elo <-
   select(-team1_master, -team2_master) %>%
   select(
     season,
+    week,
     date,
     team1,
     team2,

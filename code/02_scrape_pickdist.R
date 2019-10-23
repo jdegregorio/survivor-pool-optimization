@@ -77,7 +77,6 @@ df.dist.new <-
   select(-team_master) %>%
   select(season, week, team, pick_pct, win_prob, expected_value)
 
-
 # JOIN NEW/EXISTING GAME DATA -------------------------------------------------
 
 # Bind dataframes

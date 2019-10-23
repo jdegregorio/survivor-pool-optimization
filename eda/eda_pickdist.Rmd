@@ -1,0 +1,266 @@
+---
+title: "Pick Distribution Exploratory Data Analysis"
+output:
+  html_notebook:
+    toc: true
+    toc_float: true
+---
+
+# Introduction
+
+Pick distribution data was scraped from SurvivorGrid.com.  This data shows how pool participants select teams each week throughout the season. The goal of this exploratory analysis is to expose interesting trends and patterns that will help with building insightful features for a predictive model.
+
+# Setup
+
+```{r}
+
+# Load packages
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(lubridate)
+library(stringr)
+library(purrr)
+library(here)
+library(feather)
+library(readr)
+
+# Load data
+df.elo <- read_feather(here("data", "historic", "elo_prob_historic.feather"))
+df.dist <- read_feather(here("data", "historic", "pickdist_historic.feather"))
+df.games <- read_feather(here("data", "historic", "games_historic.feather"))
+lu.teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
+
+```
+
+# Prepare Data
+
+```{r}
+
+# Filter data for 2010 and later
+df.elo <- df.elo %>% filter(season >= 2010)
+df.dist <- df.dist %>% filter(season >= 2010)
+df.games <- df.games %>% filter(season >= 2010)
+
+# Master/Clean team names (ELO)
+df.elo <- df.elo %>%
+  left_join(lu.teams %>% select(team_short, team_master_short), by = c("team1" = "team_short")) %>%
+  mutate(team1 = team_master_short) %>%
+  select(-team_master_short) %>%
+  left_join(lu.teams %>% select(team_short, team_master_short), by = c("team2" = "team_short")) %>%
+  mutate(team2 = team_master_short) %>%
+  select(-team_master_short)
+
+# Master/Clean team names (Pick Distributions)
+df.dist <- df.dist %>%
+  left_join(lu.teams %>% select(team_short, team_master_short), by = c("team" = "team_short")) %>%
+  mutate(team = team_master_short) %>%
+  select(-team_master_short)
+
+# Master/Clean team names (Game Results)
+df.games <- df.games %>%
+  left_join(lu.teams %>% select(team_full, team_master_short), by = c("team1" = "team_full")) %>%
+  mutate(team1 = team_master_short) %>%
+  select(-team_master_short) %>%
+  left_join(lu.teams %>% select(team_full, team_master_short), by = c("team2" = "team_full")) %>%
+  mutate(team2 = team_master_short) %>%
+  select(-team_master_short)
+
+# Derive game result from points totals
+df.games <- df.games %>%
+  mutate(
+    result_team1 = case_when(points_team1 > points_team2 ~ "W", points_team2 > points_team1 ~ "L", TRUE ~ "T"),
+    result_team2 = case_when(points_team2 > points_team1 ~ "W", points_team1 > points_team2 ~ "L", TRUE ~ "T")
+  )
+
+# Derive week from date
+df.elo <- df.elo %>%
+  group_by(season) %>%
+  mutate(
+    date_rounded = round_date(date, unit = "week"),
+    week = dense_rank(date_rounded)
+  ) %>%
+  select(-date_rounded)
+
+# Reshape ELO win probability data
+df.elo <- bind_rows(
+  df.elo %>% select(season, week, team = team1, elo_rating = elo_team1, win_prob = prob_team1),
+  df.elo %>% select(season, week, team = team2, elo_rating = elo_team2, win_prob = prob_team2)
+)
+
+# Reshape NFL game results
+df.games <- bind_rows(
+  df.games %>% select(season, week, team = team1, result = result_team1),
+  df.games %>% select(season, week, team = team2, result = result_team2)
+)
+
+# Join win probability data to pick distribution records
+df.dist <- df.dist %>%
+  left_join(
+    df.elo, 
+    by = c("season", "week", "team")
+  )
+
+# Create team rank feature by week
+df.dist <- df.dist %>%
+  group_by(season, week) %>%
+  mutate(rank_week = row_number(desc(win_prob))) %>%
+  ungroup()
+
+# Create team rank feature by season
+df.dist <- df.dist %>%
+  left_join(
+    df.dist %>%
+      group_by(season, team) %>%
+      summarize(win_prob_mean_season = mean(win_prob, na.rm = T)) %>%
+      ungroup() %>%
+      group_by(season) %>%
+      mutate(rank_season = row_number(desc(win_prob_mean_season))) %>%
+      ungroup() %>%
+      arrange(season, rank_season),
+    by = c("season", "team")
+  )
+
+# Join game result data
+df.dist <- df.dist %>%
+  left_join(df.games, by = c("season", "week", "team"))
+
+
+```
+
+# Exploration
+
+### Data Structure Overview
+
+```{r}
+skimr::skim(df.dist)
+```
+
+
+### Questions
+
+#### What is the typical survival rate?
+
+First, let's calculate the surival statistics for each season/week based on the game results.
+
+```{r}
+
+# Prepare Survival Statistics
+df.survival <- df.dist %>%
+  group_by(season, week) %>%
+  filter(result == "W") %>%
+  summarize(survive_pct = sum(pick_pct, na.rm = TRUE)) %>%
+  ungroup() %>%
+  group_by(season) %>%
+  arrange(week) %>%
+  mutate(remaining_pct = cumprod(survive_pct)) %>%
+  ungroup() %>%
+  add_row(season = unique(df.dist$season), week = 0, survive_pct = NA, remaining_pct = 1.0) %>%
+  arrange(season, week)
+
+
+```
+
+Now, let's review the basic survival curve for the last several seasons.
+
+```{r}
+ggplot(df.survival, aes(x = week, y = remaining_pct, color = as.factor(season))) +
+  geom_line(size = 1.1, alpha = 0.8) +
+  scale_color_brewer(palette = "Set1") +
+  theme_classic() +
+  labs(
+    title = "Survival Curve",
+    x = "Week",
+    y = "Percent Alive",
+    color = "Season"
+  )
+```
+
+Let's now consider the average case.
+
+```{r}
+
+tmp.plot <- df.survival %>%
+  group_by(week) %>%
+  summarize(remaining_pct = mean(remaining_pct)) %>%
+  ungroup()
+
+ggplot(df.survival, ) +
+  geom_line(
+    mapping = aes(x = week, y = remaining_pct, group = as.factor(season)),
+    size = 0.5, alpha = 0.5, color = "grey"
+  ) +
+  geom_line(
+    data = tmp.plot,
+    mapping = aes(x = week, y = remaining_pct),
+    size = 1,
+    linetype = "dashed",
+    color = "firebrick3"
+  ) +
+  scale_color_brewer(palette = "Set1") +
+  theme_classic() +
+  labs(
+    title = "Survival Curve",
+    x = "Week",
+    y = "Percent Alive",
+    color = "Season"
+  )
+```
+
+Let's get some basic stats about how long people last in survivor pools.
+
+```{r}
+
+approx(x = tmp.plot$remaining_pct, 
+       y = tmp.plot$week, 
+       xout = c(0.25, 0.1, 0.05, 0.01)) %>% 
+  as.data.frame() %>%
+  rename(`Remaining Percentage` = x, Week = y) %>%
+  mutate(Week = round(Week, 1))
+
+```
+
+The table above summarizes how long we would likely need to surive to make it to key thresholds such as 25%, 10%, 5% and 1% of the remaining pool.
+
+This means that in sufficiently large pools (e.g. > 100), you would likely need to survive the entire season and likely into the playoffs to be the final survivor.
+
+
+#### How does survival performanc change throughout the season?
+
+Let's look at distribution of surival rates for each week in the season.
+
+```{r}
+ggplot(df.survival %>% drop_na(), aes(x = as.factor(week), y = survive_pct)) +
+  geom_boxplot(fill = "dodgerblue4", alpha = 0.3, color = "black", outlier.color = NA) +
+  geom_jitter(width = 0.15, alpha = 0.5) +
+  geom_hline(yintercept = mean(df.survival$survive_pct, na.rm = TRUE), linetype = "dashed") +
+  theme_classic() +
+  labs(
+    title = "Survival Percentage Distributions by Week",
+    x = "Week",
+    y = "Survival Percentage"
+  )
+
+
+```
+
+Oddly, there doesn't appear to be a strong trend in survival percentage over time.  This is fairly unexpected due to the fact that options for picks becomes more and more limited each week, hence, it would be expected that performance would down over time.  Perhaps, this is counter-balanced by the fact that partcippants that make to to later weeks may have more experience/knowledge.
+
+
+
+#### When do people typically utilize the best teams?
+
+```{r}
+tmp.plot <- df.dist %>%
+  filter(rank_season <= 10)
+
+ggplot(tmp.plot, aes(x = week, y = pick_pct, alpha = pick_pct,  color = as.factor(rank_season))) +
+  geom_point() +
+  theme_classic() +
+  labs(
+    title = "Top Rank Team Pick Distribution",
+    x = "Week",
+    y = "Pick Percentage"
+  )
+```
+
