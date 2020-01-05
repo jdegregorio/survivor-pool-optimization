@@ -5057,79 +5057,79 @@ season,week,game,date,weekday,hour,team1,team2,points_team1,points_team2,locatio
 2018,20,2,2019-01-20,Sun,18,New England Patriots,Kansas City Chiefs,37,31,away,home,TRUE,FALSE
 2018,21,1,2019-02-03,Sun,18,New England Patriots,Los Angeles Rams,13,3,neutral,neutral,TRUE,TRUE
 2019,1,1,2019-09-05,Thu,20,Green Bay Packers,Chicago Bears,10,3,away,home,FALSE,FALSE
-2019,1,2,2019-09-08,Sun,13,Buffalo Bills,New York Jets,17,16,away,home,FALSE,FALSE
-2019,1,3,2019-09-08,Sun,13,Baltimore Ravens,Miami Dolphins,59,10,away,home,FALSE,FALSE
+2019,1,2,2019-09-08,Sun,13,Tennessee Titans,Cleveland Browns,43,13,away,home,FALSE,FALSE
+2019,1,3,2019-09-08,Sun,13,Kansas City Chiefs,Jacksonville Jaguars,40,26,away,home,FALSE,FALSE
 2019,1,4,2019-09-08,Sun,13,Minnesota Vikings,Atlanta Falcons,28,12,home,away,FALSE,FALSE
 2019,1,5,2019-09-08,Sun,13,Los Angeles Rams,Carolina Panthers,30,27,away,home,FALSE,FALSE
-2019,1,6,2019-09-08,Sun,13,Kansas City Chiefs,Jacksonville Jaguars,40,26,away,home,FALSE,FALSE
-2019,1,7,2019-09-08,Sun,13,Tennessee Titans,Cleveland Browns,43,13,away,home,FALSE,FALSE
+2019,1,6,2019-09-08,Sun,13,Baltimore Ravens,Miami Dolphins,59,10,away,home,FALSE,FALSE
+2019,1,7,2019-09-08,Sun,13,Buffalo Bills,New York Jets,17,16,away,home,FALSE,FALSE
 2019,1,8,2019-09-08,Sun,13,Philadelphia Eagles,Washington Redskins,32,27,home,away,FALSE,FALSE
-2019,1,9,2019-09-08,Sun,16,Seattle Seahawks,Cincinnati Bengals,21,20,home,away,FALSE,FALSE
-2019,1,10,2019-09-08,Sun,16,Los Angeles Chargers,Indianapolis Colts,30,24,home,away,FALSE,FALSE
-2019,1,11,2019-09-08,Sun,16,San Francisco 49ers,Tampa Bay Buccaneers,31,17,away,home,FALSE,FALSE
-2019,1,12,2019-09-08,Sun,16,Dallas Cowboys,New York Giants,35,17,home,away,FALSE,FALSE
+2019,1,9,2019-09-08,Sun,16,Los Angeles Chargers,Indianapolis Colts,30,24,home,away,FALSE,FALSE
+2019,1,10,2019-09-08,Sun,16,Seattle Seahawks,Cincinnati Bengals,21,20,home,away,FALSE,FALSE
+2019,1,11,2019-09-08,Sun,16,Dallas Cowboys,New York Giants,35,17,home,away,FALSE,FALSE
+2019,1,12,2019-09-08,Sun,16,San Francisco 49ers,Tampa Bay Buccaneers,31,17,away,home,FALSE,FALSE
 2019,1,13,2019-09-08,Sun,16,Detroit Lions,Arizona Cardinals,27,27,away,home,FALSE,FALSE
 2019,1,14,2019-09-08,Sun,20,New England Patriots,Pittsburgh Steelers,33,3,home,away,FALSE,FALSE
 2019,1,15,2019-09-09,Mon,19,New Orleans Saints,Houston Texans,30,28,home,away,FALSE,FALSE
 2019,1,16,2019-09-09,Mon,22,Oakland Raiders,Denver Broncos,24,16,home,away,FALSE,FALSE
 2019,2,1,2019-09-12,Thu,20,Tampa Bay Buccaneers,Carolina Panthers,20,14,away,home,FALSE,FALSE
-2019,2,2,2019-09-15,Sun,13,Baltimore Ravens,Arizona Cardinals,23,17,home,away,FALSE,FALSE
-2019,2,3,2019-09-15,Sun,13,Green Bay Packers,Minnesota Vikings,21,16,home,away,FALSE,FALSE
-2019,2,4,2019-09-15,Sun,13,Seattle Seahawks,Pittsburgh Steelers,28,26,away,home,FALSE,FALSE
-2019,2,5,2019-09-15,Sun,13,Buffalo Bills,New York Giants,28,14,away,home,FALSE,FALSE
-2019,2,6,2019-09-15,Sun,13,New England Patriots,Miami Dolphins,43,0,away,home,FALSE,FALSE
-2019,2,7,2019-09-15,Sun,13,San Francisco 49ers,Cincinnati Bengals,41,17,away,home,FALSE,FALSE
-2019,2,8,2019-09-15,Sun,13,Dallas Cowboys,Washington Redskins,31,21,away,home,FALSE,FALSE
-2019,2,9,2019-09-15,Sun,13,Indianapolis Colts,Tennessee Titans,19,17,away,home,FALSE,FALSE
-2019,2,10,2019-09-15,Sun,13,Houston Texans,Jacksonville Jaguars,13,12,home,away,FALSE,FALSE
-2019,2,11,2019-09-15,Sun,13,Detroit Lions,Los Angeles Chargers,13,10,home,away,FALSE,FALSE
+2019,2,2,2019-09-15,Sun,13,Indianapolis Colts,Tennessee Titans,19,17,away,home,FALSE,FALSE
+2019,2,3,2019-09-15,Sun,13,San Francisco 49ers,Cincinnati Bengals,41,17,away,home,FALSE,FALSE
+2019,2,4,2019-09-15,Sun,13,Houston Texans,Jacksonville Jaguars,13,12,home,away,FALSE,FALSE
+2019,2,5,2019-09-15,Sun,13,Dallas Cowboys,Washington Redskins,31,21,away,home,FALSE,FALSE
+2019,2,6,2019-09-15,Sun,13,Detroit Lions,Los Angeles Chargers,13,10,home,away,FALSE,FALSE
+2019,2,7,2019-09-15,Sun,13,Green Bay Packers,Minnesota Vikings,21,16,home,away,FALSE,FALSE
+2019,2,8,2019-09-15,Sun,13,Seattle Seahawks,Pittsburgh Steelers,28,26,away,home,FALSE,FALSE
+2019,2,9,2019-09-15,Sun,13,New England Patriots,Miami Dolphins,43,0,away,home,FALSE,FALSE
+2019,2,10,2019-09-15,Sun,13,Buffalo Bills,New York Giants,28,14,away,home,FALSE,FALSE
+2019,2,11,2019-09-15,Sun,13,Baltimore Ravens,Arizona Cardinals,23,17,home,away,FALSE,FALSE
 2019,2,12,2019-09-15,Sun,16,Kansas City Chiefs,Oakland Raiders,28,10,away,home,FALSE,FALSE
 2019,2,13,2019-09-15,Sun,16,Los Angeles Rams,New Orleans Saints,27,9,home,away,FALSE,FALSE
 2019,2,14,2019-09-15,Sun,16,Chicago Bears,Denver Broncos,16,14,away,home,FALSE,FALSE
 2019,2,15,2019-09-15,Sun,20,Atlanta Falcons,Philadelphia Eagles,24,20,home,away,FALSE,FALSE
 2019,2,16,2019-09-16,Mon,20,Cleveland Browns,New York Jets,23,3,away,home,FALSE,FALSE
 2019,3,1,2019-09-19,Thu,20,Jacksonville Jaguars,Tennessee Titans,20,7,home,away,FALSE,FALSE
-2019,3,2,2019-09-22,Sun,13,Dallas Cowboys,Miami Dolphins,31,6,home,away,FALSE,FALSE
-2019,3,3,2019-09-22,Sun,13,Detroit Lions,Philadelphia Eagles,27,24,away,home,FALSE,FALSE
-2019,3,4,2019-09-22,Sun,13,New England Patriots,New York Jets,30,14,home,away,FALSE,FALSE
+2019,3,2,2019-09-22,Sun,13,New England Patriots,New York Jets,30,14,home,away,FALSE,FALSE
+2019,3,3,2019-09-22,Sun,13,Buffalo Bills,Cincinnati Bengals,21,17,home,away,FALSE,FALSE
+2019,3,4,2019-09-22,Sun,13,Green Bay Packers,Denver Broncos,27,16,home,away,FALSE,FALSE
 2019,3,5,2019-09-22,Sun,13,Minnesota Vikings,Oakland Raiders,34,14,home,away,FALSE,FALSE
-2019,3,6,2019-09-22,Sun,13,Green Bay Packers,Denver Broncos,27,16,home,away,FALSE,FALSE
-2019,3,7,2019-09-22,Sun,13,Buffalo Bills,Cincinnati Bengals,21,17,home,away,FALSE,FALSE
-2019,3,8,2019-09-22,Sun,13,Kansas City Chiefs,Baltimore Ravens,33,28,home,away,FALSE,FALSE
+2019,3,6,2019-09-22,Sun,13,Kansas City Chiefs,Baltimore Ravens,33,28,home,away,FALSE,FALSE
+2019,3,7,2019-09-22,Sun,13,Dallas Cowboys,Miami Dolphins,31,6,home,away,FALSE,FALSE
+2019,3,8,2019-09-22,Sun,13,Detroit Lions,Philadelphia Eagles,27,24,away,home,FALSE,FALSE
 2019,3,9,2019-09-22,Sun,13,Indianapolis Colts,Atlanta Falcons,27,24,home,away,FALSE,FALSE
 2019,3,10,2019-09-22,Sun,16,New York Giants,Tampa Bay Buccaneers,32,31,away,home,FALSE,FALSE
 2019,3,11,2019-09-22,Sun,16,Carolina Panthers,Arizona Cardinals,38,20,away,home,FALSE,FALSE
-2019,3,12,2019-09-22,Sun,16,Houston Texans,Los Angeles Chargers,27,20,away,home,FALSE,FALSE
+2019,3,12,2019-09-22,Sun,16,San Francisco 49ers,Pittsburgh Steelers,24,20,home,away,FALSE,FALSE
 2019,3,13,2019-09-22,Sun,16,New Orleans Saints,Seattle Seahawks,33,27,away,home,FALSE,FALSE
-2019,3,14,2019-09-22,Sun,16,San Francisco 49ers,Pittsburgh Steelers,24,20,home,away,FALSE,FALSE
+2019,3,14,2019-09-22,Sun,16,Houston Texans,Los Angeles Chargers,27,20,away,home,FALSE,FALSE
 2019,3,15,2019-09-22,Sun,20,Los Angeles Rams,Cleveland Browns,20,13,away,home,FALSE,FALSE
 2019,3,16,2019-09-23,Mon,20,Chicago Bears,Washington Redskins,31,15,away,home,FALSE,FALSE
 2019,4,1,2019-09-26,Thu,20,Philadelphia Eagles,Green Bay Packers,34,27,away,home,FALSE,FALSE
-2019,4,2,2019-09-29,Sun,13,Tennessee Titans,Atlanta Falcons,24,10,away,home,FALSE,FALSE
-2019,4,3,2019-09-29,Sun,13,Oakland Raiders,Indianapolis Colts,31,24,away,home,FALSE,FALSE
-2019,4,4,2019-09-29,Sun,13,Carolina Panthers,Houston Texans,16,10,away,home,FALSE,FALSE
+2019,4,2,2019-09-29,Sun,13,Los Angeles Chargers,Miami Dolphins,30,10,away,home,FALSE,FALSE
+2019,4,3,2019-09-29,Sun,13,Carolina Panthers,Houston Texans,16,10,away,home,FALSE,FALSE
+2019,4,4,2019-09-29,Sun,13,Oakland Raiders,Indianapolis Colts,31,24,away,home,FALSE,FALSE
 2019,4,5,2019-09-29,Sun,13,New York Giants,Washington Redskins,24,3,home,away,FALSE,FALSE
-2019,4,6,2019-09-29,Sun,13,Kansas City Chiefs,Detroit Lions,34,30,away,home,FALSE,FALSE
-2019,4,7,2019-09-29,Sun,13,Los Angeles Chargers,Miami Dolphins,30,10,away,home,FALSE,FALSE
-2019,4,8,2019-09-29,Sun,13,Cleveland Browns,Baltimore Ravens,40,25,away,home,FALSE,FALSE
-2019,4,9,2019-09-29,Sun,13,New England Patriots,Buffalo Bills,16,10,away,home,FALSE,FALSE
-2019,4,10,2019-09-29,Sun,16,Seattle Seahawks,Arizona Cardinals,27,10,away,home,FALSE,FALSE
-2019,4,11,2019-09-29,Sun,16,Tampa Bay Buccaneers,Los Angeles Rams,55,40,away,home,FALSE,FALSE
-2019,4,12,2019-09-29,Sun,16,Jacksonville Jaguars,Denver Broncos,26,24,away,home,FALSE,FALSE
-2019,4,13,2019-09-29,Sun,16,Chicago Bears,Minnesota Vikings,16,6,home,away,FALSE,FALSE
+2019,4,6,2019-09-29,Sun,13,New England Patriots,Buffalo Bills,16,10,away,home,FALSE,FALSE
+2019,4,7,2019-09-29,Sun,13,Cleveland Browns,Baltimore Ravens,40,25,away,home,FALSE,FALSE
+2019,4,8,2019-09-29,Sun,13,Kansas City Chiefs,Detroit Lions,34,30,away,home,FALSE,FALSE
+2019,4,9,2019-09-29,Sun,13,Tennessee Titans,Atlanta Falcons,24,10,away,home,FALSE,FALSE
+2019,4,10,2019-09-29,Sun,16,Tampa Bay Buccaneers,Los Angeles Rams,55,40,away,home,FALSE,FALSE
+2019,4,11,2019-09-29,Sun,16,Seattle Seahawks,Arizona Cardinals,27,10,away,home,FALSE,FALSE
+2019,4,12,2019-09-29,Sun,16,Chicago Bears,Minnesota Vikings,16,6,home,away,FALSE,FALSE
+2019,4,13,2019-09-29,Sun,16,Jacksonville Jaguars,Denver Broncos,26,24,away,home,FALSE,FALSE
 2019,4,14,2019-09-29,Sun,20,New Orleans Saints,Dallas Cowboys,12,10,home,away,FALSE,FALSE
 2019,4,15,2019-09-30,Mon,20,Pittsburgh Steelers,Cincinnati Bengals,27,3,home,away,FALSE,FALSE
 2019,5,1,2019-10-03,Thu,20,Seattle Seahawks,Los Angeles Rams,30,29,home,away,FALSE,FALSE
 2019,5,2,2019-10-06,Sun,13,Philadelphia Eagles,New York Jets,31,6,home,away,FALSE,FALSE
-2019,5,3,2019-10-06,Sun,13,Buffalo Bills,Tennessee Titans,14,7,away,home,FALSE,FALSE
-2019,5,4,2019-10-06,Sun,13,Oakland Raiders,Chicago Bears,24,21,home,away,FALSE,FALSE
-2019,5,5,2019-10-06,Sun,13,Arizona Cardinals,Cincinnati Bengals,26,23,away,home,FALSE,FALSE
-2019,5,6,2019-10-06,Sun,13,Houston Texans,Atlanta Falcons,53,32,home,away,FALSE,FALSE
+2019,5,3,2019-10-06,Sun,13,Houston Texans,Atlanta Falcons,53,32,home,away,FALSE,FALSE
+2019,5,4,2019-10-06,Sun,13,New England Patriots,Washington Redskins,33,7,away,home,FALSE,FALSE
+2019,5,5,2019-10-06,Sun,13,Baltimore Ravens,Pittsburgh Steelers,26,23,away,home,FALSE,FALSE
+2019,5,6,2019-10-06,Sun,13,Oakland Raiders,Chicago Bears,24,21,home,away,FALSE,FALSE
 2019,5,7,2019-10-06,Sun,13,Carolina Panthers,Jacksonville Jaguars,34,27,home,away,FALSE,FALSE
-2019,5,8,2019-10-06,Sun,13,New England Patriots,Washington Redskins,33,7,away,home,FALSE,FALSE
+2019,5,8,2019-10-06,Sun,13,New Orleans Saints,Tampa Bay Buccaneers,31,24,home,away,FALSE,FALSE
 2019,5,9,2019-10-06,Sun,13,Minnesota Vikings,New York Giants,28,10,away,home,FALSE,FALSE
-2019,5,10,2019-10-06,Sun,13,New Orleans Saints,Tampa Bay Buccaneers,31,24,home,away,FALSE,FALSE
-2019,5,11,2019-10-06,Sun,13,Baltimore Ravens,Pittsburgh Steelers,26,23,away,home,FALSE,FALSE
+2019,5,10,2019-10-06,Sun,13,Arizona Cardinals,Cincinnati Bengals,26,23,away,home,FALSE,FALSE
+2019,5,11,2019-10-06,Sun,13,Buffalo Bills,Tennessee Titans,14,7,away,home,FALSE,FALSE
 2019,5,12,2019-10-06,Sun,16,Denver Broncos,Los Angeles Chargers,20,13,away,home,FALSE,FALSE
 2019,5,13,2019-10-06,Sun,16,Green Bay Packers,Dallas Cowboys,34,24,away,home,FALSE,FALSE
 2019,5,14,2019-10-06,Sun,20,Indianapolis Colts,Kansas City Chiefs,19,13,away,home,FALSE,FALSE
@@ -5140,8 +5140,8 @@ season,week,game,date,weekday,hour,team1,team2,points_team1,points_team2,locatio
 2019,6,4,2019-10-13,Sun,13,Seattle Seahawks,Cleveland Browns,32,28,away,home,FALSE,FALSE
 2019,6,5,2019-10-13,Sun,13,New Orleans Saints,Jacksonville Jaguars,13,6,away,home,FALSE,FALSE
 2019,6,6,2019-10-13,Sun,13,Houston Texans,Kansas City Chiefs,31,24,away,home,FALSE,FALSE
-2019,6,7,2019-10-13,Sun,13,Baltimore Ravens,Cincinnati Bengals,23,17,home,away,FALSE,FALSE
-2019,6,8,2019-10-13,Sun,13,Minnesota Vikings,Philadelphia Eagles,38,20,home,away,FALSE,FALSE
+2019,6,7,2019-10-13,Sun,13,Minnesota Vikings,Philadelphia Eagles,38,20,home,away,FALSE,FALSE
+2019,6,8,2019-10-13,Sun,13,Baltimore Ravens,Cincinnati Bengals,23,17,home,away,FALSE,FALSE
 2019,6,9,2019-10-13,Sun,16,Arizona Cardinals,Atlanta Falcons,34,33,home,away,FALSE,FALSE
 2019,6,10,2019-10-13,Sun,16,San Francisco 49ers,Los Angeles Rams,20,7,away,home,FALSE,FALSE
 2019,6,11,2019-10-13,Sun,16,Denver Broncos,Tennessee Titans,16,0,home,away,FALSE,FALSE
@@ -5149,166 +5149,168 @@ season,week,game,date,weekday,hour,team1,team2,points_team1,points_team2,locatio
 2019,6,13,2019-10-13,Sun,20,Pittsburgh Steelers,Los Angeles Chargers,24,17,away,home,FALSE,FALSE
 2019,6,14,2019-10-14,Mon,20,Green Bay Packers,Detroit Lions,23,22,home,away,FALSE,FALSE
 2019,7,1,2019-10-17,Thu,20,Kansas City Chiefs,Denver Broncos,30,6,away,home,FALSE,FALSE
-2019,7,2,2019-10-20,Sun,13,Oakland Raiders,Green Bay Packers,NA,NA,away,home,FALSE,FALSE
-2019,7,3,2019-10-20,Sun,13,San Francisco 49ers,Washington Redskins,NA,NA,away,home,FALSE,FALSE
-2019,7,4,2019-10-20,Sun,13,Los Angeles Rams,Atlanta Falcons,NA,NA,away,home,FALSE,FALSE
-2019,7,5,2019-10-20,Sun,13,Miami Dolphins,Buffalo Bills,NA,NA,away,home,FALSE,FALSE
-2019,7,6,2019-10-20,Sun,13,Arizona Cardinals,New York Giants,NA,NA,away,home,FALSE,FALSE
-2019,7,7,2019-10-20,Sun,13,Jacksonville Jaguars,Cincinnati Bengals,NA,NA,away,home,FALSE,FALSE
-2019,7,8,2019-10-20,Sun,13,Minnesota Vikings,Detroit Lions,NA,NA,away,home,FALSE,FALSE
-2019,7,9,2019-10-20,Sun,13,Houston Texans,Indianapolis Colts,NA,NA,away,home,FALSE,FALSE
-2019,7,10,2019-10-20,Sun,16,Los Angeles Chargers,Tennessee Titans,NA,NA,away,home,FALSE,FALSE
-2019,7,11,2019-10-20,Sun,16,Baltimore Ravens,Seattle Seahawks,NA,NA,away,home,FALSE,FALSE
-2019,7,12,2019-10-20,Sun,16,New Orleans Saints,Chicago Bears,NA,NA,away,home,FALSE,FALSE
-2019,7,13,2019-10-20,Sun,20,Philadelphia Eagles,Dallas Cowboys,NA,NA,away,home,FALSE,FALSE
-2019,7,14,2019-10-21,Mon,20,New England Patriots,New York Jets,NA,NA,away,home,FALSE,FALSE
-2019,8,1,2019-10-24,Thu,20,Washington Redskins,Minnesota Vikings,NA,NA,away,home,FALSE,FALSE
-2019,8,2,2019-10-27,Sun,13,Tampa Bay Buccaneers,Tennessee Titans,NA,NA,away,home,FALSE,FALSE
-2019,8,3,2019-10-27,Sun,13,Seattle Seahawks,Atlanta Falcons,NA,NA,away,home,FALSE,FALSE
-2019,8,4,2019-10-27,Sun,13,Los Angeles Chargers,Chicago Bears,NA,NA,away,home,FALSE,FALSE
-2019,8,5,2019-10-27,Sun,13,New York Jets,Jacksonville Jaguars,NA,NA,away,home,FALSE,FALSE
-2019,8,6,2019-10-27,Sun,13,New York Giants,Detroit Lions,NA,NA,away,home,FALSE,FALSE
-2019,8,7,2019-10-27,Sun,13,Philadelphia Eagles,Buffalo Bills,NA,NA,away,home,FALSE,FALSE
-2019,8,8,2019-10-27,Sun,13,Denver Broncos,Indianapolis Colts,NA,NA,away,home,FALSE,FALSE
-2019,8,9,2019-10-27,Sun,13,Arizona Cardinals,New Orleans Saints,NA,NA,away,home,FALSE,FALSE
-2019,8,10,2019-10-27,Sun,13,Cincinnati Bengals,Los Angeles Rams,NA,NA,away,home,FALSE,FALSE
-2019,8,11,2019-10-27,Sun,16,Carolina Panthers,San Francisco 49ers,NA,NA,away,home,FALSE,FALSE
-2019,8,12,2019-10-27,Sun,16,Oakland Raiders,Houston Texans,NA,NA,away,home,FALSE,FALSE
-2019,8,13,2019-10-27,Sun,16,Cleveland Browns,New England Patriots,NA,NA,away,home,FALSE,FALSE
-2019,8,14,2019-10-27,Sun,20,Green Bay Packers,Kansas City Chiefs,NA,NA,away,home,FALSE,FALSE
-2019,8,15,2019-10-28,Mon,20,Miami Dolphins,Pittsburgh Steelers,NA,NA,away,home,FALSE,FALSE
-2019,9,1,2019-10-31,Thu,20,San Francisco 49ers,Arizona Cardinals,NA,NA,away,home,FALSE,FALSE
-2019,9,2,2019-11-03,Sun,9,Houston Texans,Jacksonville Jaguars,NA,NA,away,home,FALSE,FALSE
-2019,9,3,2019-11-03,Sun,13,Washington Redskins,Buffalo Bills,NA,NA,away,home,FALSE,FALSE
-2019,9,4,2019-11-03,Sun,13,Tennessee Titans,Carolina Panthers,NA,NA,away,home,FALSE,FALSE
-2019,9,5,2019-11-03,Sun,13,New York Jets,Miami Dolphins,NA,NA,away,home,FALSE,FALSE
-2019,9,6,2019-11-03,Sun,13,Indianapolis Colts,Pittsburgh Steelers,NA,NA,away,home,FALSE,FALSE
-2019,9,7,2019-11-03,Sun,13,Minnesota Vikings,Kansas City Chiefs,NA,NA,away,home,FALSE,FALSE
-2019,9,8,2019-11-03,Sun,13,Chicago Bears,Philadelphia Eagles,NA,NA,away,home,FALSE,FALSE
-2019,9,9,2019-11-03,Sun,16,Tampa Bay Buccaneers,Seattle Seahawks,NA,NA,away,home,FALSE,FALSE
-2019,9,10,2019-11-03,Sun,16,Detroit Lions,Oakland Raiders,NA,NA,away,home,FALSE,FALSE
-2019,9,11,2019-11-03,Sun,16,Green Bay Packers,Los Angeles Chargers,NA,NA,away,home,FALSE,FALSE
-2019,9,12,2019-11-03,Sun,16,Cleveland Browns,Denver Broncos,NA,NA,away,home,FALSE,FALSE
-2019,9,13,2019-11-03,Sun,20,New England Patriots,Baltimore Ravens,NA,NA,away,home,FALSE,FALSE
-2019,9,14,2019-11-04,Mon,20,Dallas Cowboys,New York Giants,NA,NA,away,home,FALSE,FALSE
-2019,10,1,2019-11-07,Thu,20,Los Angeles Chargers,Oakland Raiders,NA,NA,away,home,FALSE,FALSE
-2019,10,2,2019-11-10,Sun,13,Buffalo Bills,Cleveland Browns,NA,NA,away,home,FALSE,FALSE
-2019,10,3,2019-11-10,Sun,13,Carolina Panthers,Green Bay Packers,NA,NA,away,home,FALSE,FALSE
-2019,10,4,2019-11-10,Sun,13,Baltimore Ravens,Cincinnati Bengals,NA,NA,away,home,FALSE,FALSE
-2019,10,5,2019-11-10,Sun,13,Atlanta Falcons,New Orleans Saints,NA,NA,away,home,FALSE,FALSE
-2019,10,6,2019-11-10,Sun,13,Kansas City Chiefs,Tennessee Titans,NA,NA,away,home,FALSE,FALSE
-2019,10,7,2019-11-10,Sun,13,New York Giants,New York Jets,NA,NA,away,home,FALSE,FALSE
-2019,10,8,2019-11-10,Sun,13,Detroit Lions,Chicago Bears,NA,NA,away,home,FALSE,FALSE
-2019,10,9,2019-11-10,Sun,13,Arizona Cardinals,Tampa Bay Buccaneers,NA,NA,away,home,FALSE,FALSE
-2019,10,10,2019-11-10,Sun,16,Miami Dolphins,Indianapolis Colts,NA,NA,away,home,FALSE,FALSE
-2019,10,11,2019-11-10,Sun,16,Los Angeles Rams,Pittsburgh Steelers,NA,NA,away,home,FALSE,FALSE
-2019,10,12,2019-11-10,Sun,20,Minnesota Vikings,Dallas Cowboys,NA,NA,away,home,FALSE,FALSE
-2019,10,13,2019-11-11,Mon,20,Seattle Seahawks,San Francisco 49ers,NA,NA,away,home,FALSE,FALSE
-2019,11,1,2019-11-14,Thu,20,Pittsburgh Steelers,Cleveland Browns,NA,NA,away,home,FALSE,FALSE
-2019,11,2,2019-11-17,Sun,13,Buffalo Bills,Miami Dolphins,NA,NA,away,home,FALSE,FALSE
-2019,11,3,2019-11-17,Sun,13,Atlanta Falcons,Carolina Panthers,NA,NA,away,home,FALSE,FALSE
-2019,11,4,2019-11-17,Sun,13,New Orleans Saints,Tampa Bay Buccaneers,NA,NA,away,home,FALSE,FALSE
-2019,11,5,2019-11-17,Sun,13,New York Jets,Washington Redskins,NA,NA,away,home,FALSE,FALSE
-2019,11,6,2019-11-17,Sun,13,Jacksonville Jaguars,Indianapolis Colts,NA,NA,away,home,FALSE,FALSE
-2019,11,7,2019-11-17,Sun,13,Denver Broncos,Minnesota Vikings,NA,NA,away,home,FALSE,FALSE
-2019,11,8,2019-11-17,Sun,13,Dallas Cowboys,Detroit Lions,NA,NA,away,home,FALSE,FALSE
-2019,11,9,2019-11-17,Sun,13,Houston Texans,Baltimore Ravens,NA,NA,away,home,FALSE,FALSE
-2019,11,10,2019-11-17,Sun,16,Arizona Cardinals,San Francisco 49ers,NA,NA,away,home,FALSE,FALSE
-2019,11,11,2019-11-17,Sun,16,Cincinnati Bengals,Oakland Raiders,NA,NA,away,home,FALSE,FALSE
-2019,11,12,2019-11-17,Sun,16,New England Patriots,Philadelphia Eagles,NA,NA,away,home,FALSE,FALSE
-2019,11,13,2019-11-17,Sun,20,Chicago Bears,Los Angeles Rams,NA,NA,away,home,FALSE,FALSE
-2019,11,14,2019-11-18,Mon,20,Kansas City Chiefs,Los Angeles Chargers,NA,NA,away,home,FALSE,FALSE
-2019,12,1,2019-11-21,Thu,20,Indianapolis Colts,Houston Texans,NA,NA,away,home,FALSE,FALSE
-2019,12,2,2019-11-24,Sun,13,Pittsburgh Steelers,Cincinnati Bengals,NA,NA,away,home,FALSE,FALSE
-2019,12,3,2019-11-24,Sun,13,Carolina Panthers,New Orleans Saints,NA,NA,away,home,FALSE,FALSE
-2019,12,4,2019-11-24,Sun,13,Oakland Raiders,New York Jets,NA,NA,away,home,FALSE,FALSE
-2019,12,5,2019-11-24,Sun,13,Tampa Bay Buccaneers,Atlanta Falcons,NA,NA,away,home,FALSE,FALSE
-2019,12,6,2019-11-24,Sun,13,New York Giants,Chicago Bears,NA,NA,away,home,FALSE,FALSE
-2019,12,7,2019-11-24,Sun,13,Miami Dolphins,Cleveland Browns,NA,NA,away,home,FALSE,FALSE
-2019,12,8,2019-11-24,Sun,13,Detroit Lions,Washington Redskins,NA,NA,away,home,FALSE,FALSE
-2019,12,9,2019-11-24,Sun,13,Denver Broncos,Buffalo Bills,NA,NA,away,home,FALSE,FALSE
-2019,12,10,2019-11-24,Sun,16,Jacksonville Jaguars,Tennessee Titans,NA,NA,away,home,FALSE,FALSE
-2019,12,11,2019-11-24,Sun,16,Dallas Cowboys,New England Patriots,NA,NA,away,home,FALSE,FALSE
-2019,12,12,2019-11-24,Sun,16,Green Bay Packers,San Francisco 49ers,NA,NA,away,home,FALSE,FALSE
-2019,12,13,2019-11-24,Sun,20,Seattle Seahawks,Philadelphia Eagles,NA,NA,away,home,FALSE,FALSE
-2019,12,14,2019-11-25,Mon,20,Baltimore Ravens,Los Angeles Rams,NA,NA,away,home,FALSE,FALSE
-2019,13,1,2019-11-28,Thu,12,Chicago Bears,Detroit Lions,NA,NA,away,home,FALSE,FALSE
-2019,13,2,2019-11-28,Thu,16,Buffalo Bills,Dallas Cowboys,NA,NA,away,home,FALSE,FALSE
-2019,13,3,2019-11-28,Thu,20,New Orleans Saints,Atlanta Falcons,NA,NA,away,home,FALSE,FALSE
-2019,13,4,2019-12-01,Sun,13,Green Bay Packers,New York Giants,NA,NA,away,home,FALSE,FALSE
-2019,13,5,2019-12-01,Sun,13,Washington Redskins,Carolina Panthers,NA,NA,away,home,FALSE,FALSE
-2019,13,6,2019-12-01,Sun,13,San Francisco 49ers,Baltimore Ravens,NA,NA,away,home,FALSE,FALSE
-2019,13,7,2019-12-01,Sun,13,Philadelphia Eagles,Miami Dolphins,NA,NA,away,home,FALSE,FALSE
-2019,13,8,2019-12-01,Sun,13,Tennessee Titans,Indianapolis Colts,NA,NA,away,home,FALSE,FALSE
-2019,13,9,2019-12-01,Sun,13,Oakland Raiders,Kansas City Chiefs,NA,NA,away,home,FALSE,FALSE
-2019,13,10,2019-12-01,Sun,13,Tampa Bay Buccaneers,Jacksonville Jaguars,NA,NA,away,home,FALSE,FALSE
-2019,13,11,2019-12-01,Sun,13,New York Jets,Cincinnati Bengals,NA,NA,away,home,FALSE,FALSE
-2019,13,12,2019-12-01,Sun,16,Los Angeles Rams,Arizona Cardinals,NA,NA,away,home,FALSE,FALSE
-2019,13,13,2019-12-01,Sun,16,Cleveland Browns,Pittsburgh Steelers,NA,NA,away,home,FALSE,FALSE
-2019,13,14,2019-12-01,Sun,16,Los Angeles Chargers,Denver Broncos,NA,NA,away,home,FALSE,FALSE
-2019,13,15,2019-12-01,Sun,20,New England Patriots,Houston Texans,NA,NA,away,home,FALSE,FALSE
-2019,13,16,2019-12-02,Mon,20,Minnesota Vikings,Seattle Seahawks,NA,NA,away,home,FALSE,FALSE
-2019,14,1,2019-12-05,Thu,20,Dallas Cowboys,Chicago Bears,NA,NA,away,home,FALSE,FALSE
-2019,14,2,2019-12-08,Sun,13,Detroit Lions,Minnesota Vikings,NA,NA,away,home,FALSE,FALSE
-2019,14,3,2019-12-08,Sun,13,Denver Broncos,Houston Texans,NA,NA,away,home,FALSE,FALSE
-2019,14,4,2019-12-08,Sun,13,Cincinnati Bengals,Cleveland Browns,NA,NA,away,home,FALSE,FALSE
-2019,14,5,2019-12-08,Sun,13,Washington Redskins,Green Bay Packers,NA,NA,away,home,FALSE,FALSE
-2019,14,6,2019-12-08,Sun,13,Carolina Panthers,Atlanta Falcons,NA,NA,away,home,FALSE,FALSE
-2019,14,7,2019-12-08,Sun,13,Baltimore Ravens,Buffalo Bills,NA,NA,away,home,FALSE,FALSE
-2019,14,8,2019-12-08,Sun,13,San Francisco 49ers,New Orleans Saints,NA,NA,away,home,FALSE,FALSE
-2019,14,9,2019-12-08,Sun,13,Indianapolis Colts,Tampa Bay Buccaneers,NA,NA,away,home,FALSE,FALSE
-2019,14,10,2019-12-08,Sun,13,Miami Dolphins,New York Jets,NA,NA,away,home,FALSE,FALSE
-2019,14,11,2019-12-08,Sun,16,Los Angeles Chargers,Jacksonville Jaguars,NA,NA,away,home,FALSE,FALSE
-2019,14,12,2019-12-08,Sun,16,Pittsburgh Steelers,Arizona Cardinals,NA,NA,away,home,FALSE,FALSE
-2019,14,13,2019-12-08,Sun,16,Tennessee Titans,Oakland Raiders,NA,NA,away,home,FALSE,FALSE
-2019,14,14,2019-12-08,Sun,16,Kansas City Chiefs,New England Patriots,NA,NA,away,home,FALSE,FALSE
-2019,14,15,2019-12-08,Sun,20,Seattle Seahawks,Los Angeles Rams,NA,NA,away,home,FALSE,FALSE
-2019,14,16,2019-12-09,Mon,20,New York Giants,Philadelphia Eagles,NA,NA,away,home,FALSE,FALSE
-2019,15,1,2019-12-12,Thu,20,New York Jets,Baltimore Ravens,NA,NA,away,home,FALSE,FALSE
-2019,15,2,2019-12-15,Sun,13,New England Patriots,Cincinnati Bengals,NA,NA,away,home,FALSE,FALSE
-2019,15,3,2019-12-15,Sun,13,Houston Texans,Tennessee Titans,NA,NA,away,home,FALSE,FALSE
-2019,15,4,2019-12-15,Sun,13,Miami Dolphins,New York Giants,NA,NA,away,home,FALSE,FALSE
-2019,15,5,2019-12-15,Sun,13,Denver Broncos,Kansas City Chiefs,NA,NA,away,home,FALSE,FALSE
-2019,15,6,2019-12-15,Sun,13,Chicago Bears,Green Bay Packers,NA,NA,away,home,FALSE,FALSE
-2019,15,7,2019-12-15,Sun,13,Buffalo Bills,Pittsburgh Steelers,NA,NA,away,home,FALSE,FALSE
-2019,15,8,2019-12-15,Sun,13,Philadelphia Eagles,Washington Redskins,NA,NA,away,home,FALSE,FALSE
-2019,15,9,2019-12-15,Sun,13,Tampa Bay Buccaneers,Detroit Lions,NA,NA,away,home,FALSE,FALSE
-2019,15,10,2019-12-15,Sun,13,Seattle Seahawks,Carolina Panthers,NA,NA,away,home,FALSE,FALSE
-2019,15,11,2019-12-15,Sun,16,Jacksonville Jaguars,Oakland Raiders,NA,NA,away,home,FALSE,FALSE
-2019,15,12,2019-12-15,Sun,16,Cleveland Browns,Arizona Cardinals,NA,NA,away,home,FALSE,FALSE
-2019,15,13,2019-12-15,Sun,16,Los Angeles Rams,Dallas Cowboys,NA,NA,away,home,FALSE,FALSE
-2019,15,14,2019-12-15,Sun,16,Atlanta Falcons,San Francisco 49ers,NA,NA,away,home,FALSE,FALSE
-2019,15,15,2019-12-15,Sun,20,Minnesota Vikings,Los Angeles Chargers,NA,NA,away,home,FALSE,FALSE
-2019,15,16,2019-12-16,Mon,20,Indianapolis Colts,New Orleans Saints,NA,NA,away,home,FALSE,FALSE
-2019,16,1,2019-12-22,Sun,13,New Orleans Saints,Tennessee Titans,NA,NA,away,home,FALSE,FALSE
-2019,16,2,2019-12-22,Sun,13,New York Giants,Washington Redskins,NA,NA,away,home,FALSE,FALSE
-2019,16,3,2019-12-22,Sun,13,Detroit Lions,Denver Broncos,NA,NA,away,home,FALSE,FALSE
-2019,16,4,2019-12-22,Sun,13,Jacksonville Jaguars,Atlanta Falcons,NA,NA,away,home,FALSE,FALSE
-2019,16,5,2019-12-22,Sun,13,Houston Texans,Tampa Bay Buccaneers,NA,NA,away,home,FALSE,FALSE
-2019,16,6,2019-12-22,Sun,13,Cincinnati Bengals,Miami Dolphins,NA,NA,away,home,FALSE,FALSE
-2019,16,7,2019-12-22,Sun,13,Pittsburgh Steelers,New York Jets,NA,NA,away,home,FALSE,FALSE
-2019,16,8,2019-12-22,Sun,13,Carolina Panthers,Indianapolis Colts,NA,NA,away,home,FALSE,FALSE
-2019,16,9,2019-12-22,Sun,13,Oakland Raiders,Los Angeles Chargers,NA,NA,away,home,FALSE,FALSE
-2019,16,10,2019-12-22,Sun,13,Buffalo Bills,New England Patriots,NA,NA,away,home,FALSE,FALSE
-2019,16,11,2019-12-22,Sun,13,Baltimore Ravens,Cleveland Browns,NA,NA,away,home,FALSE,FALSE
-2019,16,12,2019-12-22,Sun,13,Los Angeles Rams,San Francisco 49ers,NA,NA,away,home,FALSE,FALSE
-2019,16,13,2019-12-22,Sun,16,Arizona Cardinals,Seattle Seahawks,NA,NA,away,home,FALSE,FALSE
-2019,16,14,2019-12-22,Sun,16,Dallas Cowboys,Philadelphia Eagles,NA,NA,away,home,FALSE,FALSE
-2019,16,15,2019-12-22,Sun,20,Kansas City Chiefs,Chicago Bears,NA,NA,away,home,FALSE,FALSE
-2019,16,16,2019-12-23,Mon,20,Green Bay Packers,Minnesota Vikings,NA,NA,away,home,FALSE,FALSE
-2019,17,1,2019-12-29,Sun,13,New Orleans Saints,Carolina Panthers,NA,NA,away,home,FALSE,FALSE
-2019,17,2,2019-12-29,Sun,13,New York Jets,Buffalo Bills,NA,NA,away,home,FALSE,FALSE
-2019,17,3,2019-12-29,Sun,13,Indianapolis Colts,Jacksonville Jaguars,NA,NA,away,home,FALSE,FALSE
-2019,17,4,2019-12-29,Sun,13,Miami Dolphins,New England Patriots,NA,NA,away,home,FALSE,FALSE
-2019,17,5,2019-12-29,Sun,13,Cleveland Browns,Cincinnati Bengals,NA,NA,away,home,FALSE,FALSE
-2019,17,6,2019-12-29,Sun,13,Green Bay Packers,Detroit Lions,NA,NA,away,home,FALSE,FALSE
-2019,17,7,2019-12-29,Sun,13,Chicago Bears,Minnesota Vikings,NA,NA,away,home,FALSE,FALSE
-2019,17,8,2019-12-29,Sun,13,Washington Redskins,Dallas Cowboys,NA,NA,away,home,FALSE,FALSE
-2019,17,9,2019-12-29,Sun,13,Pittsburgh Steelers,Baltimore Ravens,NA,NA,away,home,FALSE,FALSE
-2019,17,10,2019-12-29,Sun,13,Atlanta Falcons,Tampa Bay Buccaneers,NA,NA,away,home,FALSE,FALSE
-2019,17,11,2019-12-29,Sun,13,Philadelphia Eagles,New York Giants,NA,NA,away,home,FALSE,FALSE
-2019,17,12,2019-12-29,Sun,13,Tennessee Titans,Houston Texans,NA,NA,away,home,FALSE,FALSE
-2019,17,13,2019-12-29,Sun,13,Los Angeles Chargers,Kansas City Chiefs,NA,NA,away,home,FALSE,FALSE
-2019,17,14,2019-12-29,Sun,16,Arizona Cardinals,Los Angeles Rams,NA,NA,away,home,FALSE,FALSE
-2019,17,15,2019-12-29,Sun,16,San Francisco 49ers,Seattle Seahawks,NA,NA,away,home,FALSE,FALSE
-2019,17,16,2019-12-29,Sun,16,Oakland Raiders,Denver Broncos,NA,NA,away,home,FALSE,FALSE
+2019,7,2,2019-10-20,Sun,13,Buffalo Bills,Miami Dolphins,31,21,home,away,FALSE,FALSE
+2019,7,3,2019-10-20,Sun,13,San Francisco 49ers,Washington Redskins,9,0,away,home,FALSE,FALSE
+2019,7,4,2019-10-20,Sun,13,Minnesota Vikings,Detroit Lions,42,30,away,home,FALSE,FALSE
+2019,7,5,2019-10-20,Sun,13,Indianapolis Colts,Houston Texans,30,23,home,away,FALSE,FALSE
+2019,7,6,2019-10-20,Sun,13,Green Bay Packers,Oakland Raiders,42,24,home,away,FALSE,FALSE
+2019,7,7,2019-10-20,Sun,13,Jacksonville Jaguars,Cincinnati Bengals,27,17,away,home,FALSE,FALSE
+2019,7,8,2019-10-20,Sun,13,Arizona Cardinals,New York Giants,27,21,away,home,FALSE,FALSE
+2019,7,9,2019-10-20,Sun,13,Los Angeles Rams,Atlanta Falcons,37,10,away,home,FALSE,FALSE
+2019,7,10,2019-10-20,Sun,16,Tennessee Titans,Los Angeles Chargers,23,20,home,away,FALSE,FALSE
+2019,7,11,2019-10-20,Sun,16,New Orleans Saints,Chicago Bears,36,25,away,home,FALSE,FALSE
+2019,7,12,2019-10-20,Sun,16,Baltimore Ravens,Seattle Seahawks,30,16,away,home,FALSE,FALSE
+2019,7,13,2019-10-20,Sun,20,Dallas Cowboys,Philadelphia Eagles,37,10,home,away,FALSE,FALSE
+2019,7,14,2019-10-21,Mon,20,New England Patriots,New York Jets,33,0,away,home,FALSE,FALSE
+2019,8,1,2019-10-24,Thu,20,Minnesota Vikings,Washington Redskins,19,9,home,away,FALSE,FALSE
+2019,8,2,2019-10-27,Sun,13,Los Angeles Chargers,Chicago Bears,17,16,away,home,FALSE,FALSE
+2019,8,3,2019-10-27,Sun,13,Indianapolis Colts,Denver Broncos,15,13,home,away,FALSE,FALSE
+2019,8,4,2019-10-27,Sun,13,Philadelphia Eagles,Buffalo Bills,31,13,away,home,FALSE,FALSE
+2019,8,5,2019-10-27,Sun,13,Detroit Lions,New York Giants,31,26,home,away,FALSE,FALSE
+2019,8,6,2019-10-27,Sun,13,Seattle Seahawks,Atlanta Falcons,27,20,away,home,FALSE,FALSE
+2019,8,7,2019-10-27,Sun,13,Tennessee Titans,Tampa Bay Buccaneers,27,23,home,away,FALSE,FALSE
+2019,8,8,2019-10-27,Sun,13,Los Angeles Rams,Cincinnati Bengals,24,10,home,away,FALSE,FALSE
+2019,8,9,2019-10-27,Sun,13,New Orleans Saints,Arizona Cardinals,31,9,home,away,FALSE,FALSE
+2019,8,10,2019-10-27,Sun,13,Jacksonville Jaguars,New York Jets,29,15,home,away,FALSE,FALSE
+2019,8,11,2019-10-27,Sun,16,San Francisco 49ers,Carolina Panthers,51,13,home,away,FALSE,FALSE
+2019,8,12,2019-10-27,Sun,16,New England Patriots,Cleveland Browns,27,13,home,away,FALSE,FALSE
+2019,8,13,2019-10-27,Sun,16,Houston Texans,Oakland Raiders,27,24,home,away,FALSE,FALSE
+2019,8,14,2019-10-27,Sun,20,Green Bay Packers,Kansas City Chiefs,31,24,away,home,FALSE,FALSE
+2019,8,15,2019-10-28,Mon,20,Pittsburgh Steelers,Miami Dolphins,27,14,home,away,FALSE,FALSE
+2019,9,1,2019-10-31,Thu,20,San Francisco 49ers,Arizona Cardinals,28,25,away,home,FALSE,FALSE
+2019,9,2,2019-11-03,Sun,9,Houston Texans,Jacksonville Jaguars,26,3,away,home,FALSE,FALSE
+2019,9,3,2019-11-03,Sun,13,Philadelphia Eagles,Chicago Bears,22,14,home,away,FALSE,FALSE
+2019,9,4,2019-11-03,Sun,13,Carolina Panthers,Tennessee Titans,30,20,home,away,FALSE,FALSE
+2019,9,5,2019-11-03,Sun,13,Pittsburgh Steelers,Indianapolis Colts,26,24,home,away,FALSE,FALSE
+2019,9,6,2019-11-03,Sun,13,Buffalo Bills,Washington Redskins,24,9,home,away,FALSE,FALSE
+2019,9,7,2019-11-03,Sun,13,Miami Dolphins,New York Jets,26,18,home,away,FALSE,FALSE
+2019,9,8,2019-11-03,Sun,13,Kansas City Chiefs,Minnesota Vikings,26,23,home,away,FALSE,FALSE
+2019,9,9,2019-11-03,Sun,16,Oakland Raiders,Detroit Lions,31,24,home,away,FALSE,FALSE
+2019,9,10,2019-11-03,Sun,16,Seattle Seahawks,Tampa Bay Buccaneers,40,34,home,away,FALSE,FALSE
+2019,9,11,2019-11-03,Sun,16,Denver Broncos,Cleveland Browns,24,19,home,away,FALSE,FALSE
+2019,9,12,2019-11-03,Sun,16,Los Angeles Chargers,Green Bay Packers,26,11,home,away,FALSE,FALSE
+2019,9,13,2019-11-03,Sun,20,Baltimore Ravens,New England Patriots,37,20,home,away,FALSE,FALSE
+2019,9,14,2019-11-04,Mon,20,Dallas Cowboys,New York Giants,37,18,away,home,FALSE,FALSE
+2019,10,1,2019-11-07,Thu,20,Oakland Raiders,Los Angeles Chargers,26,24,home,away,FALSE,FALSE
+2019,10,2,2019-11-10,Sun,13,Atlanta Falcons,New Orleans Saints,26,9,away,home,FALSE,FALSE
+2019,10,3,2019-11-10,Sun,13,Chicago Bears,Detroit Lions,20,13,home,away,FALSE,FALSE
+2019,10,4,2019-11-10,Sun,13,Baltimore Ravens,Cincinnati Bengals,49,13,away,home,FALSE,FALSE
+2019,10,5,2019-11-10,Sun,13,Cleveland Browns,Buffalo Bills,19,16,home,away,FALSE,FALSE
+2019,10,6,2019-11-10,Sun,13,Tennessee Titans,Kansas City Chiefs,35,32,home,away,FALSE,FALSE
+2019,10,7,2019-11-10,Sun,13,Tampa Bay Buccaneers,Arizona Cardinals,30,27,home,away,FALSE,FALSE
+2019,10,8,2019-11-10,Sun,13,New York Jets,New York Giants,34,27,home,away,FALSE,FALSE
+2019,10,9,2019-11-10,Sun,16,Miami Dolphins,Indianapolis Colts,16,12,away,home,FALSE,FALSE
+2019,10,10,2019-11-10,Sun,16,Green Bay Packers,Carolina Panthers,24,16,home,away,FALSE,FALSE
+2019,10,11,2019-11-10,Sun,16,Pittsburgh Steelers,Los Angeles Rams,17,12,home,away,FALSE,FALSE
+2019,10,12,2019-11-10,Sun,20,Minnesota Vikings,Dallas Cowboys,28,24,away,home,FALSE,FALSE
+2019,10,13,2019-11-11,Mon,20,Seattle Seahawks,San Francisco 49ers,27,24,away,home,FALSE,FALSE
+2019,11,1,2019-11-14,Thu,20,Cleveland Browns,Pittsburgh Steelers,21,7,home,away,FALSE,FALSE
+2019,11,2,2019-11-17,Sun,13,Buffalo Bills,Miami Dolphins,37,20,away,home,FALSE,FALSE
+2019,11,3,2019-11-17,Sun,13,Dallas Cowboys,Detroit Lions,35,27,away,home,FALSE,FALSE
+2019,11,4,2019-11-17,Sun,13,Atlanta Falcons,Carolina Panthers,29,3,away,home,FALSE,FALSE
+2019,11,5,2019-11-17,Sun,13,Baltimore Ravens,Houston Texans,41,7,home,away,FALSE,FALSE
+2019,11,6,2019-11-17,Sun,13,Minnesota Vikings,Denver Broncos,27,23,home,away,FALSE,FALSE
+2019,11,7,2019-11-17,Sun,13,New Orleans Saints,Tampa Bay Buccaneers,34,17,away,home,FALSE,FALSE
+2019,11,8,2019-11-17,Sun,13,Indianapolis Colts,Jacksonville Jaguars,33,13,home,away,FALSE,FALSE
+2019,11,9,2019-11-17,Sun,13,New York Jets,Washington Redskins,34,17,away,home,FALSE,FALSE
+2019,11,10,2019-11-17,Sun,16,San Francisco 49ers,Arizona Cardinals,36,26,home,away,FALSE,FALSE
+2019,11,11,2019-11-17,Sun,16,Oakland Raiders,Cincinnati Bengals,17,10,home,away,FALSE,FALSE
+2019,11,12,2019-11-17,Sun,16,New England Patriots,Philadelphia Eagles,17,10,away,home,FALSE,FALSE
+2019,11,13,2019-11-17,Sun,20,Los Angeles Rams,Chicago Bears,17,7,home,away,FALSE,FALSE
+2019,11,14,2019-11-18,Mon,20,Kansas City Chiefs,Los Angeles Chargers,24,17,away,home,FALSE,FALSE
+2019,12,1,2019-11-21,Thu,20,Houston Texans,Indianapolis Colts,20,17,home,away,FALSE,FALSE
+2019,12,2,2019-11-24,Sun,13,Chicago Bears,New York Giants,19,14,home,away,FALSE,FALSE
+2019,12,3,2019-11-24,Sun,13,Seattle Seahawks,Philadelphia Eagles,17,9,away,home,FALSE,FALSE
+2019,12,4,2019-11-24,Sun,13,New York Jets,Oakland Raiders,34,3,home,away,FALSE,FALSE
+2019,12,5,2019-11-24,Sun,13,Washington Redskins,Detroit Lions,19,16,home,away,FALSE,FALSE
+2019,12,6,2019-11-24,Sun,13,Pittsburgh Steelers,Cincinnati Bengals,16,10,away,home,FALSE,FALSE
+2019,12,7,2019-11-24,Sun,13,Buffalo Bills,Denver Broncos,20,3,home,away,FALSE,FALSE
+2019,12,8,2019-11-24,Sun,13,Cleveland Browns,Miami Dolphins,41,24,home,away,FALSE,FALSE
+2019,12,9,2019-11-24,Sun,13,Tampa Bay Buccaneers,Atlanta Falcons,35,22,away,home,FALSE,FALSE
+2019,12,10,2019-11-24,Sun,13,New Orleans Saints,Carolina Panthers,34,31,home,away,FALSE,FALSE
+2019,12,11,2019-11-24,Sun,16,Tennessee Titans,Jacksonville Jaguars,42,20,home,away,FALSE,FALSE
+2019,12,12,2019-11-24,Sun,16,New England Patriots,Dallas Cowboys,13,9,home,away,FALSE,FALSE
+2019,12,13,2019-11-24,Sun,20,San Francisco 49ers,Green Bay Packers,37,8,home,away,FALSE,FALSE
+2019,12,14,2019-11-25,Mon,20,Baltimore Ravens,Los Angeles Rams,45,6,away,home,FALSE,FALSE
+2019,13,1,2019-11-28,Thu,12,Chicago Bears,Detroit Lions,24,20,away,home,FALSE,FALSE
+2019,13,2,2019-11-28,Thu,16,Buffalo Bills,Dallas Cowboys,26,15,away,home,FALSE,FALSE
+2019,13,3,2019-11-28,Thu,20,New Orleans Saints,Atlanta Falcons,26,18,away,home,FALSE,FALSE
+2019,13,4,2019-12-01,Sun,13,Baltimore Ravens,San Francisco 49ers,20,17,home,away,FALSE,FALSE
+2019,13,5,2019-12-01,Sun,13,Green Bay Packers,New York Giants,31,13,away,home,FALSE,FALSE
+2019,13,6,2019-12-01,Sun,13,Washington Redskins,Carolina Panthers,29,21,away,home,FALSE,FALSE
+2019,13,7,2019-12-01,Sun,13,Miami Dolphins,Philadelphia Eagles,37,31,home,away,FALSE,FALSE
+2019,13,8,2019-12-01,Sun,13,Tampa Bay Buccaneers,Jacksonville Jaguars,28,11,away,home,FALSE,FALSE
+2019,13,9,2019-12-01,Sun,13,Tennessee Titans,Indianapolis Colts,31,17,away,home,FALSE,FALSE
+2019,13,10,2019-12-01,Sun,13,Cincinnati Bengals,New York Jets,22,6,home,away,FALSE,FALSE
+2019,13,11,2019-12-01,Sun,13,Pittsburgh Steelers,Cleveland Browns,20,13,home,away,FALSE,FALSE
+2019,13,12,2019-12-01,Sun,16,Los Angeles Rams,Arizona Cardinals,34,7,away,home,FALSE,FALSE
+2019,13,13,2019-12-01,Sun,16,Kansas City Chiefs,Oakland Raiders,40,9,home,away,FALSE,FALSE
+2019,13,14,2019-12-01,Sun,16,Denver Broncos,Los Angeles Chargers,23,20,home,away,FALSE,FALSE
+2019,13,15,2019-12-01,Sun,20,Houston Texans,New England Patriots,28,22,home,away,FALSE,FALSE
+2019,13,16,2019-12-02,Mon,20,Seattle Seahawks,Minnesota Vikings,37,30,home,away,FALSE,FALSE
+2019,14,1,2019-12-05,Thu,20,Chicago Bears,Dallas Cowboys,31,24,home,away,FALSE,FALSE
+2019,14,2,2019-12-08,Sun,13,Baltimore Ravens,Buffalo Bills,24,17,away,home,FALSE,FALSE
+2019,14,3,2019-12-08,Sun,13,San Francisco 49ers,New Orleans Saints,48,46,away,home,FALSE,FALSE
+2019,14,4,2019-12-08,Sun,13,Denver Broncos,Houston Texans,38,24,away,home,FALSE,FALSE
+2019,14,5,2019-12-08,Sun,13,Green Bay Packers,Washington Redskins,20,15,home,away,FALSE,FALSE
+2019,14,6,2019-12-08,Sun,13,Atlanta Falcons,Carolina Panthers,40,20,home,away,FALSE,FALSE
+2019,14,7,2019-12-08,Sun,13,New York Jets,Miami Dolphins,22,21,home,away,FALSE,FALSE
+2019,14,8,2019-12-08,Sun,13,Minnesota Vikings,Detroit Lions,20,7,home,away,FALSE,FALSE
+2019,14,9,2019-12-08,Sun,13,Tampa Bay Buccaneers,Indianapolis Colts,38,35,home,away,FALSE,FALSE
+2019,14,10,2019-12-08,Sun,13,Cleveland Browns,Cincinnati Bengals,27,19,home,away,FALSE,FALSE
+2019,14,11,2019-12-08,Sun,16,Los Angeles Chargers,Jacksonville Jaguars,45,10,away,home,FALSE,FALSE
+2019,14,12,2019-12-08,Sun,16,Kansas City Chiefs,New England Patriots,23,16,away,home,FALSE,FALSE
+2019,14,13,2019-12-08,Sun,16,Pittsburgh Steelers,Arizona Cardinals,23,17,away,home,FALSE,FALSE
+2019,14,14,2019-12-08,Sun,16,Tennessee Titans,Oakland Raiders,42,21,away,home,FALSE,FALSE
+2019,14,15,2019-12-08,Sun,20,Los Angeles Rams,Seattle Seahawks,28,12,home,away,FALSE,FALSE
+2019,14,16,2019-12-09,Mon,20,Philadelphia Eagles,New York Giants,23,17,home,away,FALSE,FALSE
+2019,15,1,2019-12-12,Thu,20,Baltimore Ravens,New York Jets,42,21,home,away,FALSE,FALSE
+2019,15,2,2019-12-15,Sun,13,Green Bay Packers,Chicago Bears,21,13,home,away,FALSE,FALSE
+2019,15,3,2019-12-15,Sun,13,Houston Texans,Tennessee Titans,24,21,away,home,FALSE,FALSE
+2019,15,4,2019-12-15,Sun,13,New England Patriots,Cincinnati Bengals,34,13,away,home,FALSE,FALSE
+2019,15,5,2019-12-15,Sun,13,Philadelphia Eagles,Washington Redskins,37,27,away,home,FALSE,FALSE
+2019,15,6,2019-12-15,Sun,13,Seattle Seahawks,Carolina Panthers,30,24,away,home,FALSE,FALSE
+2019,15,7,2019-12-15,Sun,13,Kansas City Chiefs,Denver Broncos,23,3,home,away,FALSE,FALSE
+2019,15,8,2019-12-15,Sun,13,New York Giants,Miami Dolphins,36,20,home,away,FALSE,FALSE
+2019,15,9,2019-12-15,Sun,13,Tampa Bay Buccaneers,Detroit Lions,38,17,away,home,FALSE,FALSE
+2019,15,10,2019-12-15,Sun,16,Jacksonville Jaguars,Oakland Raiders,20,16,away,home,FALSE,FALSE
+2019,15,11,2019-12-15,Sun,16,Arizona Cardinals,Cleveland Browns,38,24,home,away,FALSE,FALSE
+2019,15,12,2019-12-15,Sun,16,Minnesota Vikings,Los Angeles Chargers,39,10,away,home,FALSE,FALSE
+2019,15,13,2019-12-15,Sun,16,Dallas Cowboys,Los Angeles Rams,44,21,home,away,FALSE,FALSE
+2019,15,14,2019-12-15,Sun,16,Atlanta Falcons,San Francisco 49ers,29,22,away,home,FALSE,FALSE
+2019,15,15,2019-12-15,Sun,20,Buffalo Bills,Pittsburgh Steelers,17,10,away,home,FALSE,FALSE
+2019,15,16,2019-12-16,Mon,20,New Orleans Saints,Indianapolis Colts,34,7,home,away,FALSE,FALSE
+2019,16,1,2019-12-21,Sat,13,Houston Texans,Tampa Bay Buccaneers,23,20,away,home,FALSE,FALSE
+2019,16,2,2019-12-21,Sat,16,New England Patriots,Buffalo Bills,24,17,home,away,FALSE,FALSE
+2019,16,3,2019-12-21,Sat,20,San Francisco 49ers,Los Angeles Rams,34,31,home,away,FALSE,FALSE
+2019,16,4,2019-12-22,Sun,13,Atlanta Falcons,Jacksonville Jaguars,24,12,home,away,FALSE,FALSE
+2019,16,5,2019-12-22,Sun,13,New York Giants,Washington Redskins,41,35,away,home,FALSE,FALSE
+2019,16,6,2019-12-22,Sun,13,Baltimore Ravens,Cleveland Browns,31,15,away,home,FALSE,FALSE
+2019,16,7,2019-12-22,Sun,13,New Orleans Saints,Tennessee Titans,38,28,away,home,FALSE,FALSE
+2019,16,8,2019-12-22,Sun,13,Miami Dolphins,Cincinnati Bengals,38,35,home,away,FALSE,FALSE
+2019,16,9,2019-12-22,Sun,13,Indianapolis Colts,Carolina Panthers,38,6,home,away,FALSE,FALSE
+2019,16,10,2019-12-22,Sun,13,New York Jets,Pittsburgh Steelers,16,10,home,away,FALSE,FALSE
+2019,16,11,2019-12-22,Sun,16,Oakland Raiders,Los Angeles Chargers,24,17,away,home,FALSE,FALSE
+2019,16,12,2019-12-22,Sun,16,Denver Broncos,Detroit Lions,27,17,home,away,FALSE,FALSE
+2019,16,13,2019-12-22,Sun,16,Philadelphia Eagles,Dallas Cowboys,17,9,home,away,FALSE,FALSE
+2019,16,14,2019-12-22,Sun,16,Arizona Cardinals,Seattle Seahawks,27,13,away,home,FALSE,FALSE
+2019,16,15,2019-12-22,Sun,20,Kansas City Chiefs,Chicago Bears,26,3,away,home,FALSE,FALSE
+2019,16,16,2019-12-23,Mon,20,Green Bay Packers,Minnesota Vikings,23,10,away,home,FALSE,FALSE
+2019,17,1,2019-12-29,Sun,13,New Orleans Saints,Carolina Panthers,42,10,away,home,FALSE,FALSE
+2019,17,2,2019-12-29,Sun,13,Miami Dolphins,New England Patriots,27,24,away,home,FALSE,FALSE
+2019,17,3,2019-12-29,Sun,13,Green Bay Packers,Detroit Lions,23,20,away,home,FALSE,FALSE
+2019,17,4,2019-12-29,Sun,13,Kansas City Chiefs,Los Angeles Chargers,31,21,home,away,FALSE,FALSE
+2019,17,5,2019-12-29,Sun,13,Atlanta Falcons,Tampa Bay Buccaneers,28,22,away,home,FALSE,FALSE
+2019,17,6,2019-12-29,Sun,13,Chicago Bears,Minnesota Vikings,21,19,away,home,FALSE,FALSE
+2019,17,7,2019-12-29,Sun,13,Cincinnati Bengals,Cleveland Browns,33,23,home,away,FALSE,FALSE
+2019,17,8,2019-12-29,Sun,13,New York Jets,Buffalo Bills,13,6,away,home,FALSE,FALSE
+2019,17,9,2019-12-29,Sun,16,Denver Broncos,Oakland Raiders,16,15,home,away,FALSE,FALSE
+2019,17,10,2019-12-29,Sun,16,Baltimore Ravens,Pittsburgh Steelers,28,10,home,away,FALSE,FALSE
+2019,17,11,2019-12-29,Sun,16,Jacksonville Jaguars,Indianapolis Colts,38,20,home,away,FALSE,FALSE
+2019,17,12,2019-12-29,Sun,16,Philadelphia Eagles,New York Giants,34,17,away,home,FALSE,FALSE
+2019,17,13,2019-12-29,Sun,16,Dallas Cowboys,Washington Redskins,47,16,home,away,FALSE,FALSE
+2019,17,14,2019-12-29,Sun,16,Los Angeles Rams,Arizona Cardinals,31,24,home,away,FALSE,FALSE
+2019,17,15,2019-12-29,Sun,16,Tennessee Titans,Houston Texans,35,14,away,home,FALSE,FALSE
+2019,17,16,2019-12-29,Sun,20,San Francisco 49ers,Seattle Seahawks,26,21,away,home,FALSE,FALSE
+2019,18,1,2020-01-04,Sat,16,Houston Texans,Buffalo Bills,22,19,home,away,TRUE,FALSE
+2019,18,2,2020-01-04,Sat,20,Tennessee Titans,New England Patriots,20,13,away,home,TRUE,FALSE

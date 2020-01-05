@@ -10,7 +10,6 @@ library(purrr)
 library(stringr)
 library(lubridate)
 library(here)
-library(feather)
 library(readr)
 
 # Source functions
@@ -23,7 +22,7 @@ season.current <- if_else(month(Sys.Date()) >= 8, year(Sys.Date()), year(Sys.Dat
 # IDENTIFY MISSING DATA -------------------------------------------------------
 
 # Load the latest game result saved data
-df.games.existing <- read_feather(here("data", "output", "games.feather"))
+df.games.existing <- read_rds(here("data", "historic", "games_historic.rds"))
 
 # Summarize available data
 seasons.available <- df.games.existing$season %>% unique()
@@ -125,5 +124,5 @@ df.games <- df.games %>%
 
 # SAVE DATA -------------------------------------------------------------------
 
-write_feather(df.games, here("data", "output", "games.feather"))
-write_csv(df.games, here("data", "output", "games.csv"))
+write_rds(df.games, here("data", "historic", "games_historic.rds"))
+write_csv(df.games, here("data", "historic", "games_historic.csv"))

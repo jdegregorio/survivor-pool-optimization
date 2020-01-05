@@ -98,5 +98,5 @@ df.schedule <- df.schedule %>%
 
 # SAVE DATA -------------------------------------------------------------------
 
-write_feather(df.schedule, here("data", "output", "schedule.feather"))
+write_rds(df.schedule, here("data", "output", "schedule.rds"))
 write_csv(df.schedule, here("data", "output", "schedule.csv"))

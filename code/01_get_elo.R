@@ -11,7 +11,6 @@ library(dplyr)
 library(tidyr)
 library(lubridate)
 library(here)
-library(feather)
 library(readr)
 library(httr)
 
@@ -68,5 +67,5 @@ df.elo <-
 
 # SAVE DATA -------------------------------------------------------------------
 
-write_feather(df.elo, here("data", "output", "elo_prob.feather"))
+write_rds(df.elo, here("data", "output", "elo_prob.rds"))
 write_csv(df.elo, here("data", "output", "elo_prob.csv"))

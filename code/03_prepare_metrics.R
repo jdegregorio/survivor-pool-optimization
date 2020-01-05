@@ -18,8 +18,8 @@ library(readr)
 source(here("code", "funs_metrics.R"))
 
 # Load data
-df.elo <- read_feather(here("data", "output", "elo_prob.feather"))
-df.dist <- read_feather(here("data", "output", "pickdist.feather"))
+df.elo <- read_rds(here("data", "output", "elo_prob.rds"))
+df.dist <- read_rds(here("data", "output", "pickdist.rds"))
 
 
 # PREPARE PICK DATA -----------------------------------------------------------
@@ -61,5 +61,5 @@ df.expval <- grid.expval %>%
 
 # SAVE DATA -------------------------------------------------------------------
 
-write_feather(df.expval, here("data", "output", "expected_value.feather"))
+write_rds(df.expval, here("data", "output", "expected_value.rds"))
 write_csv(df.expval, here("data", "output", "expected_value.csv"))

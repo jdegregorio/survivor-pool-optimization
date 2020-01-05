@@ -11,7 +11,6 @@ library(purrr)
 library(stringr)
 library(lubridate)
 library(here)
-library(feather)
 library(readr)
 
 # Source functions
@@ -27,12 +26,37 @@ season.start <- season.current
 
 # IDENTIFY MISSING DATA -------------------------------------------------------
 
-# Load the latest game result saved data
-df.dist.existing <- read_feather(here("data", "output", "pickdist.feather"))
-
-df.available <- df.dist.existing %>%
-  select(season, week) %>%
-  distinct()
+# Load the latest game result saved data (if available)
+if (file.exists(here("data", "output", "pickdist.rds"))) {
+  
+  # Load
+  df.dist.existing <- read_rds(here("data", "output", "pickdist.rds"))
+  
+  # Track available data
+  df.available <- df.dist.existing %>%
+    select(season, week) %>%
+    distinct()
+  
+} else {
+  
+  # Create dummy dataframes
+  df.dist.existing <-
+    tibble(
+      season = integer(),
+      week = integer(),
+      team = character(),
+      pick_pct = numeric(),
+      win_prob = numeric(),
+      expected_value = numeric()
+    )
+  
+  df.available <- 
+    tibble(
+      season = integer(), 
+      week = integer()
+    )
+  
+}
 
 
 # SCRAPE RAW DATA -------------------------------------------------------------
@@ -96,5 +120,5 @@ df.dist <- df.dist %>%
 
 # SAVE DATA -------------------------------------------------------------------
 
-write_feather(df.dist, here("data", "output", "pickdist.feather"))
+write_rds(df.dist, here("data", "output", "pickdist.rds"))
 write_csv(df.dist, here("data", "output", "pickdist.csv"))
