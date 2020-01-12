@@ -18,48 +18,7 @@ library(readr)
 source(here("code", "funs_metrics.R"))
 
 # Load data
-df.elo <- read_rds(here("data", "output", "elo_prob.rds"))
-df.dist <- read_rds(here("data", "output", "pickdist.rds"))
+df.elo <- read_rds(here("data", "prepared", "data_elo.rds"))
+df.dist <- read_rds(here("data", "prepared", "data_pickdist.rds"))
 
 
-# PREPARE PICK DATA -----------------------------------------------------------
-
-# Create reference lookup (filtered for single week)
-df.metrics <- df.elo %>%
-  arrange(date) %>%
-  group_by(week) %>%
-  mutate(game_id = 1:n()) %>%
-  ungroup() %>%
-  arrange(season, week, game_id) %>%
-  select(season, week, game_id, team1, team2, prob_team1, prob_team2)
-
-# Reshape longer, join pick percentage data
-df.metrics <- 
-  bind_rows(
-    df.metrics %>% mutate(team_id = "team1") %>% select(season, week, game_id, team_id, team = team1, win_prob = prob_team1),
-    df.metrics %>% mutate(team_id = "team2") %>% select(season, week, game_id, team_id, team = team2, win_prob = prob_team2)
-  ) %>%
-  left_join(
-    df.dist %>% select(season, week, team, pick_pct),
-    by = c("season", "week", "team")
-  )
-
-# Drop NA values
-df.metrics <- df.metrics %>% drop_na()
-
-
-# GENERATE ALL SCENARIOS BY WEEK ----------------------------------------------
-
-grid.expval <- df.metrics %>%
-  select(season, week) %>%
-  distinct() %>%
-  mutate(data_expval = map2(season, week, calculate_expected_value, data_metrics = df.metrics))
-
-df.expval <- grid.expval %>%
-  unnest(data_expval)
-
-
-# SAVE DATA -------------------------------------------------------------------
-
-write_rds(df.expval, here("data", "output", "expected_value.rds"))
-write_csv(df.expval, here("data", "output", "expected_value.csv"))
