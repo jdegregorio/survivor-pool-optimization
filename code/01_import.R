@@ -2,51 +2,78 @@
 
 # SETUP -----------------------------------------------------------------------
 
-# Load packages
-library(dplyr)
-library(tidyr)
-library(purrr)
-library(stringr)
-library(lubridate)
-library(here)
+# Clean workspace
+rm(list = ls())
 
-# Source functions
-source(here("code", "funs_import.R"))
+# Source packages and functions
+source("./code/packages.R")
+source("./code/funs_utils.R")
+source("./code/funs_import.R")
 
-# Define parameters
-path.pickdist <- here("data", "raw", "data_pickdist.rds")
+# Parameters
+season.current <- get_current_season()
 
-# IMPORT ELO DATA (FIVE-THIRTY-EIGHT) -----------------------------------------
+# Define user agent
+ua_text <- 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
+ua <- user_agent(ua_text)
+set_config(ua)
 
-# Download raw data
-df.elo.historic <- get_elo_historic()
-df.elo.current <- get_elo_current()
+# Load lookup table
+lu.teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
+
+# IMPORT HISTORIC ELO DATA (FIVE-THIRTY-EIGHT) --------------------------------
+
+# Define URL
+url <- "https://raw.githubusercontent.com/fivethirtyeight/nfl-elo-game/master/data/nfl_games.csv"
+
+# Make GET request
+response <- GET(url, ua, timeout(60))
+
+# Extract to dataframe
+df.elo.historic <- 
+  content(response, type = "text", encoding = "UTF-8") %>%
+  read_csv()
 
 # Save raw data
 write_rds(df.elo.historic, here("data", "raw", "data_elo_historic.rds"))
+
+
+# IMPORT CURRENT ELO DATA (FIVE-THIRTY-EIGHT) ---------------------------------
+
+# Define URL
+url <- paste0("https://projects.fivethirtyeight.com/nfl-api/", season.current, "/nfl_games_", season.current, ".csv")
+
+# Make GET request
+response <- GET(url, ua, timeout(60))
+
+# Extract to dataframe
+df.elo.current <- 
+  content(response, type = "text", encoding = "UTF-8") %>%
+  read_csv() 
+
+# Save raw data
 write_rds(df.elo.current, here("data", "raw", "data_elo_current.rds"))
 
 
 # IMPORT PICK DISTRIBUTION DATA -----------------------------------------------
 
-# Load existing data (if available)
-df.dist.existing <- load_existing_pickdist(path.pickdist)
-
-# Determine missing records (i.e. not in existing dataset)
-df.missing <- find_missing_pickdist(
-  data_existing = df.dist.existing,
-  season_start = 2010,
-  season_end = get_current_season()
+#  Specify seasons/weeks
+df.dist <- crossing(
+  season = 2010:season.current,
+  week = 1:17
 )
 
-# Get the missing pick distribution data
-df.dist.missing <- get_pickdist(df.missing)
-
-# Merge existing/missing data
-df.dist <- 
-  bind_rows(df.dist.existing, df.dist.missing) %>%
-  arrange(season, week)
+# Scrape data
+df.dist <- df.dist %>%
+  mutate(
+    data = map2(
+      season, week, 
+      possibly(scrape_pickdist, otherwise = NA), 
+      delay = 3
+    )
+  ) %>%
+  filter(!is.na(data)) %>%
+  unnest(data)
 
 # Save data
-write_rds(df.dist, path.pickdist)
-
+write_rds(df.dist, here("data", "raw", "data_pickdist.rds"))

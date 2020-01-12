@@ -4,6 +4,9 @@
 
 # SETUP -----------------------------------------------------------------------
 
+# Clean workspace
+rm(list = ls())
+
 # Load packages
 library(dplyr)
 library(tidyr)
@@ -18,7 +21,6 @@ source(here("code", "funs_prepare.R"))
 
 # Load lookup table
 lu.teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
-
 
 
 # CLEAN DATA - ELO ------------------------------------------------------------
