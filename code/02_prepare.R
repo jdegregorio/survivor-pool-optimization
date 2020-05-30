@@ -7,17 +7,10 @@
 # Clean workspace
 rm(list = ls())
 
-# Load packages
-library(dplyr)
-library(tidyr)
-library(lubridate)
-library(stringr)
-library(purrr)
-library(here)
-library(readr)
-
-# Source functions
-source(here("code", "funs_prepare.R"))
+# Source packages and functions
+source("./code/packages.R")
+source("./code/funs_utils.R")
+source("./code/funs_prepare.R")
 
 # Load lookup table
 lu.teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
@@ -25,26 +18,66 @@ lu.teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
 
 # CLEAN DATA - ELO ------------------------------------------------------------
 
-# Load/Clean the current season's data
-df.elo.current <- 
-  read_rds(here("data", "raw", "data_elo_current.rds")) %>%
-  clean_elo()
+# Load raw ELO data
+df.elo.current <- read_rds(here("data", "raw", "data_elo_current.rds"))
+df.elo.historic <- read_rds(here("data", "raw", "data_elo_historic.rds"))
 
-# Load/Clean historical data
-df.elo.historic <- 
-  read_rds(here("data", "raw", "data_elo_historic.rds")) %>%
-  clean_elo()
-
-# Bind datasets together
-df.elo <- 
-  bind_rows(
-    df.elo.historic, 
-    df.elo.current
-  ) %>%
-  arrange(season, week)
-
-# Remove temporary tables
+# Bind datasets
+df.elo <- bind_rows(df.elo.historic, df.elo.current)
 rm(df.elo.current, df.elo.historic)
+
+# Calculate week for each game
+df.elo <- df.elo %>%
+  mutate(
+    season = as.integer(season),
+    date_rounded = round_date(date, unit = "week")
+  ) %>%
+  group_by(season) %>%
+  mutate(
+    week = dense_rank(date_rounded)
+  ) %>%
+  ungroup()
+
+# Clean team names
+df.elo <- df.elo %>%
+  left_join(
+    lu.teams %>% select(team1 = team_short, team1_master = team_master_short),
+    by = "team1"
+  ) %>%
+  left_join(
+    lu.teams %>% select(team2 = team_short, team2_master = team_master_short),
+    by = "team2"
+  ) %>%
+  mutate(
+    team1_master = ifelse(is.na(team1_master), team1, team1_master),
+    team2_master = ifelse(is.na(team2_master), team2, team2_master)
+  ) %>%
+  select(-team1, -team2) %>%
+  rename(
+    team1 = team1_master, 
+    team2 = team2_master,
+    elo_team1 = elo1,
+    elo_team2 = elo2,
+    prob_team1 = elo_prob1
+  )
+
+# Calculate complementary probability for team 2
+df.elo <- df.elo %>%
+  mutate(prob_team2 = 1 - prob_team1)
+
+# Reorganize columns
+df.elo <- df.elo %>%
+  select(
+    season,
+    week,
+    date,
+    team1,
+    team2,
+    elo_team1,
+    elo_team2,
+    prob_team1,
+    prob_team2
+  )
 
 # Save data
 write_rds(df.elo, here("data", "prepared", "data_elo.rds"))
