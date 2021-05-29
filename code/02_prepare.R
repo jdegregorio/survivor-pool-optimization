@@ -12,22 +12,28 @@ source("./code/packages.R")
 source("./code/funs_utils.R")
 source("./code/funs_prepare.R")
 
+# Load parameters
+params <- read_yaml(here("code", "params.yaml"))
+
 # Load lookup table
-lu.teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
+df_teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
 
 
 # CLEAN DATA - ELO ------------------------------------------------------------
 
 # Load raw ELO data
-df.elo.current <- read_rds(here("data", "raw", "data_elo_current.rds"))
-df.elo.historic <- read_rds(here("data", "raw", "data_elo_historic.rds"))
+df_elo_latest <- read_parquet(here("data", "raw", "df_elo_latest.parquet"))
+df_elo_hist <- read_parquet(here("data", "raw", "df_elo_hist.parquet"))
 
 # Bind datasets
-df.elo <- bind_rows(df.elo.historic, df.elo.current)
-rm(df.elo.current, df.elo.historic)
+df_elo <- bind_rows(df_elo_hist, df_elo_latest)
+rm(df_elo_latest, df_elo_hist)
+
+# Filter for min year
+df_elo <- df_elo %>% filter(season >= params$year_min)
 
 # Calculate week for each game
-df.elo <- df.elo %>%
+df_elo <- df_elo %>%
   mutate(
     season = as.integer(season),
     date_rounded = round_date(date, unit = "week")
@@ -39,13 +45,13 @@ df.elo <- df.elo %>%
   ungroup()
 
 # Clean team names
-df.elo <- df.elo %>%
+df_elo <- df_elo %>%
   left_join(
-    lu.teams %>% select(team1 = team_short, team1_master = team_master_short),
+    df_teams %>% select(team1 = team_short, team1_master = team_master_short),
     by = "team1"
   ) %>%
   left_join(
-    lu.teams %>% select(team2 = team_short, team2_master = team_master_short),
+    df_teams %>% select(team2 = team_short, team2_master = team_master_short),
     by = "team2"
   ) %>%
   mutate(
@@ -54,81 +60,128 @@ df.elo <- df.elo %>%
   ) %>%
   select(-team1, -team2) %>%
   rename(
-    team1 = team1_master, 
-    team2 = team2_master,
-    elo_team1 = elo1,
-    elo_team2 = elo2,
-    prob_team1 = elo_prob1
+    team_home = team1_master, 
+    team_away = team2_master,
+    elo_home = elo1_pre,
+    elo_away = elo2_pre,
+    prob_home = elo_prob1
   )
 
 # Calculate complementary probability for team 2
-df.elo <- df.elo %>%
-  mutate(prob_team2 = 1 - prob_team1)
+df_elo <- df_elo %>%
+  mutate(prob_away = 1 - prob_home)
 
 # Reorganize columns
-df.elo <- df.elo %>%
+df_elo <- df_elo %>%
   select(
     season,
     week,
     date,
-    team1,
-    team2,
-    elo_team1,
-    elo_team2,
-    prob_team1,
-    prob_team2
+    team_home,
+    team_away,
+    elo_home,
+    elo_away,
+    prob_home,
+    prob_away
   )
 
 # Save data
-write_rds(df.elo, here("data", "prepared", "data_elo.rds"))
+write_parquet(df_elo, here("data", "prepared", "df_elo.parquet"))
 
 
 # CLEAN DATA - PICK DISTRIBUTIONS ---------------------------------------------
 
-# Load/Clean data
-df.dist <- 
-  read_rds(here("data", "raw", "data_pickdist.rds")) %>%
-  clean_pickdist()
+# Load data
+df_pick_dist <- read_parquet(here("data", "raw", "df_pick_dist.parquet"))
+
+# Clean data
+df_pick_dist <- df_pick_dist %>%
+  mutate(
+    team = str_extract(team, "[:upper:]{2,3}"),
+    pick_pct = str_remove_all(pick_pct, "\\%") %>% as.numeric() / 100
+  ) %>%
+  left_join(
+    df_teams %>% select(team = team_short, team_master = team_master_short),
+    by = "team"
+  ) %>%
+  mutate(team = team_master) %>%
+  select(-team_master) %>%
+  select(season, week, team, pick_pct)
 
 # Save data
-write_rds(df.dist, here("data", "prepared", "data_pickdist.rds"))
+write_parquet(df_pick_dist, here("data", "prepared", "df_pick_dist.parquet"))
 
+
+# COMPILE MATCHUP DATA ----------------------------------------------------
+
+# Extract matchup data
+df_matchups <- df_elo %>%
+  select(season, week, date, team_home, team_away)
+
+# Write to disk
+write_parquet(df_matchups, here("data", "prepared", "df_matchups.parquet"))
 
 # CALCULATE EXPECTED VALUE ----------------------------------------------------
 
 # Create reference lookup (filtered for single week)
-df.metrics <- df.elo %>%
+df_metrics <- 
+  df_elo %>%
   arrange(date) %>%
   group_by(season, week) %>%
   mutate(game_id = 1:n()) %>%
   ungroup() %>%
   arrange(season, week, game_id) %>%
-  select(season, week, game_id, team1, team2, prob_team1, prob_team2)
-
-
-# Reshape longer, join pick percentage data
-df.metrics <- 
-  bind_rows(
-    df.metrics %>% mutate(team_id = "team1") %>% select(season, week, game_id, team_id, team = team1, win_prob = prob_team1),
-    df.metrics %>% mutate(team_id = "team2") %>% select(season, week, game_id, team_id, team = team2, win_prob = prob_team2)
-  ) %>%
-  left_join(
-    df.dist %>% select(season, week, team, pick_pct),
-    by = c("season", "week", "team")
+  select(
+    season,
+    week, 
+    game_id, 
+    team_home,
+    team_away,
+    elo_home,
+    elo_away,
+    prob_home,
+    prob_away
   )
 
-# Drop NA values
-df.metrics <- df.metrics %>% drop_na()
+# Reshape longer (one record/row per team per week)
+df_metrics <- df_metrics %>%
+  pivot_longer(
+    cols = c(team_home, team_away),
+    names_to = "location",
+    values_to = "team"
+  ) %>%
+  mutate(
+    location = str_remove(location, "^team_"),
+    elo = case_when(
+      location == "home" ~ elo_home,
+      location == "away" ~ elo_away
+    ),
+    prob = case_when(
+      location == "home" ~ prob_home,
+      location == "away" ~ prob_away
+    )
+  ) %>%
+  select(
+    season,
+    week,
+    game_id,
+    team,
+    location,
+    elo,
+    prob
+  )
 
 
 # GENERATE ALL SCENARIOS BY WEEK ----------------------------------------------
 
-grid.expval <- df.metrics %>%
+grid_expval <- df_metrics %>%
   select(season, week) %>%
   distinct() %>%
-  mutate(data_expval = map2(season, week, calculate_expected_value, data_metrics = df.metrics))
+  mutate(
+    data_expval = map2(season, week, calculate_expected_value, data_metrics = df_metrics)
+  )
 
-df.expval <- grid.expval %>%
+df_expval <- grid_expval %>%
   unnest(data_expval)
 
 

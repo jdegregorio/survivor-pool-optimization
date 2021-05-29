@@ -11,60 +11,43 @@ source("./code/funs_utils.R")
 source("./code/funs_import.R")
 
 # Parameters
-season.current <- get_current_season()
+season_current <- get_current_season()
 
-# Define user agent
-ua_text <- 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
-ua <- user_agent(ua_text)
-set_config(ua)
-
-# Load lookup table
-lu.teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
 
 # IMPORT HISTORIC ELO DATA (FIVE-THIRTY-EIGHT) --------------------------------
 
-# Define URL
-url <- "https://raw.githubusercontent.com/fivethirtyeight/nfl-elo-game/master/data/nfl_games.csv"
+# Download file
+url <- "https://projects.fivethirtyeight.com/nfl-api/nfl_elo.csv"
+download.file(url, here("data", "raw", "data_elo_historic.csv"))
 
-# Make GET request
-response <- GET(url, ua, timeout(60))
-
-# Extract to dataframe
-df.elo.historic <- 
-  content(response, type = "text", encoding = "UTF-8") %>%
-  read_csv()
-
-# Save raw data
-write_rds(df.elo.historic, here("data", "raw", "data_elo_historic.rds"))
+# Parse delimited file and save as parquet
+df_elo_hist <- read_csv(here("data", "raw", "data_elo_historic.csv"), guess_max = 25000)
+write_parquet(df_elo_hist, here("data", "raw", "df_elo_hist.parquet"))
+file.remove(here("data", "raw", "data_elo_historic.csv"))
 
 
 # IMPORT CURRENT ELO DATA (FIVE-THIRTY-EIGHT) ---------------------------------
 
-# Define URL
-url <- paste0("https://projects.fivethirtyeight.com/nfl-api/", season.current, "/nfl_games_", season.current, ".csv")
+# Download file
+url <- paste0("https://projects.fivethirtyeight.com/nfl-api/nfl_elo_latest.csv")
+download.file(url, here("data", "raw", "data_elo_latest.csv"))
 
-# Make GET request
-response <- GET(url, ua, timeout(60))
-
-# Extract to dataframe
-df.elo.current <- 
-  content(response, type = "text", encoding = "UTF-8") %>%
-  read_csv() 
-
-# Save raw data
-write_rds(df.elo.current, here("data", "raw", "data_elo_current.rds"))
+# Parse delimited file and save as parquet
+df_elo_latest <- read_csv(here("data", "raw", "data_elo_latest.csv"), guess_max = 25000)
+write_parquet(df_elo_latest, here("data", "raw", "df_elo_latest.parquet"))
+file.remove(here("data", "raw", "data_elo_latest.csv"))
 
 
 # IMPORT PICK DISTRIBUTION DATA -----------------------------------------------
 
 #  Specify seasons/weeks
-df.dist <- crossing(
-  season = 2010:season.current,
+df_pick_dist <- crossing(
+  season = 2010:season_current,
   week = 1:17
 )
 
 # Scrape data
-df.dist <- df.dist %>%
+df_pick_dist <- df_pick_dist %>%
   mutate(
     data = map2(
       season, week, 
@@ -76,4 +59,4 @@ df.dist <- df.dist %>%
   unnest(data)
 
 # Save data
-write_rds(df.dist, here("data", "raw", "data_pickdist.rds"))
+write_parquet(df_pick_dist, here("data", "raw", "df_pick_dist.parquet"))

@@ -1,31 +1,4 @@
 
-
-#' Clean Pick Distribution Data
-#'
-#' @param data dataframe, raw pick distribution data
-#'
-#' @return dataframe, clean pick distribution data
-#' @export
-#'
-clean_pickdist <- function(data) {
-  
-  data <- data %>%
-    mutate(
-      team = str_extract(team, "[:upper:]{2,3}"),
-      pick_pct = str_remove_all(pick_pct, "\\%") %>% as.numeric() / 100
-    ) %>%
-    left_join(
-      lu.teams %>% select(team = team_short, team_master = team_master_short),
-      by = "team"
-    ) %>%
-    mutate(team = team_master) %>%
-    select(-team_master) %>%
-    select(season, week, team, pick_pct)
-  
-  return(data)
-}
-
-
 #' Calculated the expected value for each team for given season/week
 #'
 #' @param ftr_season integer, season
@@ -38,23 +11,23 @@ clean_pickdist <- function(data) {
 calculate_expected_value <- function(ftr_season, ftr_week, data_metrics) {
   
   # Initialize weekly data
-  tmp.metrics <- data_metrics %>% filter(season == ftr_season, week == ftr_week)
-  game.count <- max(tmp.metrics$game_id)
+  tmp_metrics <- data_metrics %>% filter(season == ftr_season, week == ftr_week)
+  game_count <- max(tmp_metrics$game_id)
   
   # Create grid of possible game outcomes
-  df.outcomes <- 
-    gtools::permutations(2, game.count, v = c("team1", "team2"), repeats.allowed = TRUE) %>%
+  df_outcomes <- 
+    gtools::permutations(2, game_count, v = c("team1", "team2"), repeats.allowed = TRUE) %>%
     as_tibble() %>%
     mutate(scenario_id = 1:n()) %>%
     pivot_longer(-scenario_id, names_to = "game_id", values_to = "winner") %>%
     mutate(game_id = str_sub(game_id, 2) %>% as.integer()) %>%
     left_join(
-      tmp.metrics %>% select(game_id, team_id, team, win_prob, pick_pct), 
+      tmp_metrics %>% select(game_id, team_id, team, win_prob, pick_pct), 
       by = c("game_id" = "game_id", "winner" = "team_id")
     )
   
   # Calculate terms for EV analysis
-  df.terms <- df.outcomes %>%
+  df_terms <- df_outcomes %>%
     select(-winner) %>%
     pivot_wider(
       id_cols = scenario_id, 
@@ -70,13 +43,13 @@ calculate_expected_value <- function(ftr_season, ftr_week, data_metrics) {
     select(scenario_id, prob_scenario, entry_value, term)
   
   # Summarize expected value by team for specific week
-  df.summary <- df.outcomes %>%
+  df_summary <- df_outcomes %>%
     select(scenario_id, game_id, team) %>%
-    left_join(df.terms, by = "scenario_id") %>%
+    left_join(df_terms, by = "scenario_id") %>%
     group_by(team) %>%
     summarize(expected_value = sum(term)) %>%
     ungroup() %>%
     arrange(desc(expected_value))
   
-  return(df.summary)
+  return(df_summary)
 }
