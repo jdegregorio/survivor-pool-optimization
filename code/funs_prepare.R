@@ -35,7 +35,6 @@ calculate_expected_value <- function(ftr_season, ftr_week, data_metrics) {
     pivot_wider(
       id_cols = scenario_id, 
       names_from = team, 
-      values_fn = length,
       values_from = c(prob, pick_pct),
       values_fill = list(prob = 1, pick_pct = 0)
     ) %>%
