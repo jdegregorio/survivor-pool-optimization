@@ -36,3 +36,28 @@ The "genes" that will be used to differentiate strategies include these attribut
 ## Data Sources
   * Historical NFL Game Results:  https://www.pro-football-reference.com/
   * Historical Surivor Pool Pick Distributions:  https://www.survivorgrid.com/
+
+
+## Notes
+
+Fitness/Reward:  The estimated amount of money collected at the end of the survivor league. This will be a factor of how many participants are left. By including the possibility of splitting the pot with a tie, it helps steer the optimal policy away from simple survival which might tend to align with 
+
+States:
+  * Past Knowledge
+    * Previous picks by each player and/or remaining teams available for each player.
+    * NFL Matchup outcomes
+
+  * Present Knowledge 
+    * Survivor status of other players, remaining players in pool
+    * Week of season or weeks remaining
+    * Estimated pick distributions
+    * Expected-value scores
+
+  * Future Knowledge
+    * Schedule of upcoming nfl games
+    * Matchup data/stats for each upcoming game (ELO of each team, win probabilities, total matchup ELO)
+
+
+Actions:
+  * Labeled Team
+  * Note: Team-related feature data is stored in state-based features
