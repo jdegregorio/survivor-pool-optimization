@@ -1,1 +1,6 @@
-year_min: 1990
+year_min: 2010
+years_exclude:
+  - 2020
+n_pool_pick_sims:  1000
+n_pool_season_sims: 50
+n_pool_players: 100

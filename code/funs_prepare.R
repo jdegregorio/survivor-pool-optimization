@@ -3,7 +3,7 @@
 #'
 #' @param ftr_season integer, season
 #' @param ftr_week integer, week
-#' @param data_metrics dataframe, containing team, win_prob, and pick_pct for each team/week/season
+#' @param data_metrics dataframe, containing team, prob, and pick_pct for each team/week/season
 #'
 #' @return dataframe, containing table of each team with expected value
 #' @export
@@ -11,32 +11,36 @@
 calculate_expected_value <- function(ftr_season, ftr_week, data_metrics) {
   
   # Initialize weekly data
-  tmp_metrics <- data_metrics %>% filter(season == ftr_season, week == ftr_week)
+  tmp_metrics <- data_metrics %>% 
+    filter(season == ftr_season, week == ftr_week) %>% 
+    select(game_id, team, location, prob, pick_pct)
+  
   game_count <- max(tmp_metrics$game_id)
   
   # Create grid of possible game outcomes
   df_outcomes <- 
-    gtools::permutations(2, game_count, v = c("team1", "team2"), repeats.allowed = TRUE) %>%
+    gtools::permutations(2, game_count, v = c("home", "away"), repeats.allowed = TRUE) %>%
     as_tibble() %>%
     mutate(scenario_id = 1:n()) %>%
-    pivot_longer(-scenario_id, names_to = "game_id", values_to = "winner") %>%
+    pivot_longer(-scenario_id, names_to = "game_id", values_to = "winner_location") %>%
     mutate(game_id = str_sub(game_id, 2) %>% as.integer()) %>%
     left_join(
-      tmp_metrics %>% select(game_id, team_id, team, win_prob, pick_pct), 
-      by = c("game_id" = "game_id", "winner" = "team_id")
+      tmp_metrics, 
+      by = c("game_id" = "game_id", "winner_location" = "location")
     )
   
   # Calculate terms for EV analysis
   df_terms <- df_outcomes %>%
-    select(-winner) %>%
+    select(-winner_location) %>%
     pivot_wider(
       id_cols = scenario_id, 
       names_from = team, 
-      values_from = c(win_prob, pick_pct),
-      values_fill = list(win_prob = 1, pick_pct = 0)
+      values_fn = length,
+      values_from = c(prob, pick_pct),
+      values_fill = list(prob = 1, pick_pct = 0)
     ) %>%
     mutate(
-      prob_scenario = matrixStats::rowProds(as.matrix(select(., starts_with("win_prob")))),
+      prob_scenario = matrixStats::rowProds(as.matrix(select(., starts_with("prob")))),
       entry_value = 1 / rowSums(as.matrix(select(., starts_with("pick_pct")))),
       term = prob_scenario * entry_value
     ) %>%
