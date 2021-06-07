@@ -19,7 +19,7 @@ params <- read_yaml(here("code", "params.yaml"))
 df_teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
 
 # Setup parallel processing
-plan(multisession, workers = 4)
+plan(multisession, workers = 6)
 
 # CLEAN DATA - ELO ------------------------------------------------------------
 

@@ -4,3 +4,4 @@ years_exclude:
 n_pool_pick_sims:  1000
 n_pool_season_sims: 50
 n_pool_players: 100
+baseline_samples: 50  # per season

@@ -44,6 +44,7 @@ simulate_pool_season <- function(season, data_pool_picks, data_results, n_pool_p
   
   # Sample from picks to generate sample season
   df_pool_season <- data_pool_picks %>%
+    ungroup() %>%
     slice_sample(n = n_pool_players, replace = TRUE) %>%
     mutate(
       player_id = 1:n_pool_players %>% str_pad(width = 3, side = "left", pad = "0"),
@@ -104,7 +105,9 @@ simulate_pool_season <- function(season, data_pool_picks, data_results, n_pool_p
   df_teams_remaining <- df_teams_remaining %>%
     select(player_id, week, sort(colnames(.)))
   
-  # TODO: Extract player status by week
+  # Extract player status by week
+  df_player_status <- df_pool_season %>%
+    select(week, player_id, is_alive)
   
   # Extract top player results
   df_pool_top <- df_pool_season %>%
@@ -126,10 +129,12 @@ simulate_pool_season <- function(season, data_pool_picks, data_results, n_pool_p
   # Generate path/folder
   dir.create(here("data", "sims_pool_seasons", "results", season), recursive = TRUE, showWarnings = FALSE)
   dir.create(here("data", "sims_pool_seasons", "teams_remaining", season), recursive = TRUE, showWarnings = FALSE)
+  dir.create(here("data", "sims_pool_seasons", "player_status", season), recursive = TRUE, showWarnings = FALSE)
   
   # Write to disk results
   write_parquet(df_pool_top, here("data", "sims_pool_seasons", "results", season, file_name))
   write_parquet(df_teams_remaining, here("data", "sims_pool_seasons", "teams_remaining", season, file_name))
+  write_parquet(df_player_status, here("data", "sims_pool_seasons", "player_status", season, file_name))
   
   return(NULL)
 }
@@ -154,14 +159,14 @@ grid_results <- df_results_all %>%
   ungroup()
 
 # Run simulations
-df_pool_picks_all %>%
+tmp <- df_pool_picks_all %>%
   filter(
     season >= params$year_min,
     ! season %in% params$years_exclude,
   ) %>%
   group_by(season) %>%
-  nest(.key = "data_pool_picks") %>%
-  ungroup()
+  nest(data_pool_picks = c(pick_hash, path)) %>%
+  ungroup() %>%
   left_join(grid_results, by = "season") %>%
   mutate(sim_id = list(1:params$n_pool_season_sims)) %>%
   unnest(sim_id) %>%
@@ -175,5 +180,10 @@ df_pool_picks_all %>%
   )
 
 
+
+season <- tmp$season[[1]]
+data_pool_picks <- tmp$data_pool_picks[[1]]
+data_results <- tmp$data_results[[1]]
+n_pool_players <- 100
 
 

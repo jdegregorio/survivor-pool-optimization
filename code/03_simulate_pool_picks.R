@@ -59,14 +59,15 @@ simulate_pool_picks <- function(season, data_pick_dist) {
 }
 
 
-# Create 1000 simulated picks per season based on historic pick distributions
-grid_sim <-
-  df_pick_dist %>%
-  nest_by(season) %>%
+# Run  simulated picks per season based on historic pick distributions
+df_pick_dist %>%
+  group_by(season) %>%
+  nest() %>%
+  ungroup() %>%
   filter(
     season >= params$year_min,
     ! season %in% params$years_exclude,
   ) %>%
   mutate(sim_id = list(1:params$n_pool_pick_sims)) %>%
   unnest(sim_id) %>%
-  mutate(run = map2(season, data, simulate_pool_picks))
+  mutate(run = future_map2(season, data, simulate_pool_picks))
