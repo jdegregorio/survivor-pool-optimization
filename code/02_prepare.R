@@ -19,7 +19,7 @@ params <- read_yaml(here("code", "params.yaml"))
 df_teams <- read_csv(here("data", "lookup", "team_lookup.csv"))
 
 # Setup parallel processing
-plan(multisession, workers = 6)
+plan(multisession, workers = params$n_cores)
 
 # CLEAN DATA - ELO ------------------------------------------------------------
 
@@ -228,7 +228,8 @@ grid_ev <- df_team_stats_weekly %>%
       data_metrics = df_team_stats_weekly
     ),
     data_ev = map(run, "result"),
-    error = map(run, "error")
+    error = map(run, "error"),
+    .progress = TRUE
   )
 
 # Print grid
@@ -251,6 +252,7 @@ df_team_stats_weekly <- df_team_stats_weekly %>%
 
 # Pivot wider (one record per week, team stats in feature columns)
 df_features <- df_team_stats_weekly %>%
+  mutate(team = str_to_lower(team)) %>%
   pivot_wider(
     id_cols = c(season, week),
     names_from = team, 

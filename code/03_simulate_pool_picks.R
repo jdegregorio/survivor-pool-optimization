@@ -13,6 +13,8 @@ source("./code/packages.R")
 # Load parameters
 params <- read_yaml(here("code", "params.yaml"))
 
+# Setup parallel processing
+plan(multisession, workers = params$n_cores)
 
 # LOAD DATA ---------------------------------------------------------------
 
@@ -70,4 +72,11 @@ df_pick_dist %>%
   ) %>%
   mutate(sim_id = list(1:params$n_pool_pick_sims)) %>%
   unnest(sim_id) %>%
-  mutate(run = future_map2(season, data, simulate_pool_picks))
+  mutate(
+    run = future_map2(
+      season, data, 
+      simulate_pool_picks,
+      .progress = TRUE,
+      .options = furrr_options(seed = TRUE)
+    )
+  )

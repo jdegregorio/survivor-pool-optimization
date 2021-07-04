@@ -21,7 +21,7 @@ source("./code/packages.R")
 params <- read_yaml(here("code", "params.yaml"))
 
 # Setup parallel processing
-plan(multisession, workers = 6)
+plan(multisession, workers = params$n_cores)
 
 
 # LOAD_DATA ---------------------------------------------------------------
@@ -103,11 +103,19 @@ simulate_pool_season <- function(season, data_pool_picks, data_results, n_pool_p
     }
   }
   df_teams_remaining <- df_teams_remaining %>%
+    arrange(player_id, week) %>%
     select(player_id, week, sort(colnames(.)))
   
   # Extract player status by week
   df_player_status <- df_pool_season %>%
-    select(week, player_id, is_alive)
+    arrange(player_id, week) %>%
+    select(player_id, week, is_alive) %>%
+    pivot_wider(
+      id_cols = week,
+      names_from = player_id,
+      names_prefix = "is_alive_",
+      values_from = is_alive
+    )
   
   # Extract top player results
   df_pool_top <- df_pool_season %>%
@@ -155,11 +163,11 @@ df_pool_picks_all <-
 # Create grid of results for each season
 grid_results <- df_results_all %>% 
   group_by(season) %>%
-  nest(.key = "data_results") %>%
+  nest(data_results = c(week, team, result)) %>%
   ungroup()
 
 # Run simulations
-tmp <- df_pool_picks_all %>%
+df_pool_picks_all %>%
   filter(
     season >= params$year_min,
     ! season %in% params$years_exclude,
@@ -175,15 +183,7 @@ tmp <- df_pool_picks_all %>%
       list(season, data_pool_picks, data_results), 
       simulate_pool_season,
       n_pool_players = params$n_pool_players,
-      .progress = TRUE
+      .progress = TRUE,
+      .options = furrr_options(seed = TRUE)
     )
   )
-
-
-
-season <- tmp$season[[1]]
-data_pool_picks <- tmp$data_pool_picks[[1]]
-data_results <- tmp$data_results[[1]]
-n_pool_players <- 100
-
-
