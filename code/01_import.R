@@ -8,7 +8,6 @@ rm(list = ls())
 # Source packages and functions
 source("./code/packages.R")
 source("./code/funs_utils.R")
-source("./code/funs_import.R")
 
 # Parameters
 season_current <- get_current_season()
@@ -37,26 +36,3 @@ df_elo_latest <- read_csv(here("data", "raw", "data_elo_latest.csv"), guess_max 
 write_parquet(df_elo_latest, here("data", "raw", "df_elo_latest.parquet"))
 file.remove(here("data", "raw", "data_elo_latest.csv"))
 
-
-# IMPORT PICK DISTRIBUTION DATA -----------------------------------------------
-
-#  Specify seasons/weeks
-df_pick_dist <- crossing(
-  season = 2010:season_current,
-  week = 1:17
-)
-
-# Scrape data
-df_pick_dist <- df_pick_dist %>%
-  mutate(
-    data = map2(
-      season, week, 
-      possibly(scrape_pickdist, otherwise = NA), 
-      delay = 3
-    )
-  ) %>%
-  filter(!is.na(data)) %>%
-  unnest(data)
-
-# Save data
-write_parquet(df_pick_dist, here("data", "raw", "df_pick_dist.parquet"))
