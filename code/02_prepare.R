@@ -106,6 +106,7 @@ df_elo <- df_elo %>%
 # in other words the starting ELO/power-ranking scores for each team at the
 # start of the season.  This will be used as a starting point for simulations.
 
+
 df_elo_init <- df_elo %>%
   filter(week == 1) %>%
   select(
@@ -245,9 +246,6 @@ df_elo <- df_elo %>%
 write_parquet(df_elo, here("data", "prepared", "df_elo.parquet"))
 
 
-
 # EXTRACT NFL SEASON SCHEDULE ---------------------------------------------
 
 df_schedule <- df_elo %>%
-  
-  
