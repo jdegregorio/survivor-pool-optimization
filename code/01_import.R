@@ -7,11 +7,6 @@ rm(list = ls())
 
 # Source packages and functions
 source("./code/packages.R")
-source("./code/funs_utils.R")
-
-# Parameters
-season_current <- get_current_season()
-
 
 # IMPORT HISTORIC ELO DATA (FIVE-THIRTY-EIGHT) --------------------------------
 

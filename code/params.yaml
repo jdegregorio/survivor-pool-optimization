@@ -1,8 +1,4 @@
 n_cores: 4
-year_min: 2010
+year_min: 1980
 years_exclude:
   - 2020
-n_pool_pick_sims:  1000
-n_pool_season_sims: 1000
-n_pool_players: 100
-baseline_samples: 100  # per season

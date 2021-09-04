@@ -1,0 +1,126 @@
+---
+title: "Exploratory Analysis - ELO Difference"
+output: html_notebook
+---
+
+# ELO Difference
+
+## Purpose
+
+The purpose of this analysis is to explore the following questions:
+  * How do the ELO scores relate to game outcomes?
+  * How do the ELO scores relate to win margin differences?
+  * How do the ELO win probability and spread calculations compare to actuals?
+  
+  
+## Setup
+
+```{r}
+# Load packages
+source("../code/packages.R")
+library(ggplot2)
+
+# Load data
+df_elo_diff <- read_parquet(here("data", "prepared", "df_elo_diff.parquet"))
+```
+
+  
+
+## ELO Score Distributions
+
+First let's explore the basic distribution of ELO difference for the team that is the favorite.
+
+```{r}
+df_elo_diff %>%
+  ggplot(aes(x = favorite_elo_diff)) +
+  geom_histogram(alpha = 0.5, color = "black") +
+  theme_light() +
+  labs(
+    title = "ELO Difference Distribution (Favorite Team)",
+    x = "Favorite ELO Difference",
+    y = "Count"
+  )
+
+```
+
+## Win Percentages
+
+Now, let's layer in the win percentage with each bin of the histogram.
+
+```{r}
+df_elo_diff %>%
+  mutate(bin = cut_interval(favorite_elo_diff, n = 30)) %>%
+  group_by(bin) %>%
+  summarize(
+    count = n(),
+    win_pct = sum(favorite_point_diff > 0) / count
+  ) %>%
+  ggplot(aes(x = bin, y = count, fill = win_pct)) +
+  geom_col(alpha = 0.85) +
+  theme_light() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(
+    title = "ELO Difference Distribution (Favorite Team)",
+    x = "Favorite ELO Difference",
+    y = "Count",
+    fill = "Win %"
+  )
+```
+
+The plot above shows a clear relationship between the pre-game ELO advantage and the win probability.  But how does this compare the estimated win probablity from the ELO score/diff?
+
+```{r}
+df_elo_diff %>%
+  mutate(bin = cut_interval(favorite_elo_diff, n = 50)) %>%
+  group_by(bin) %>%
+  summarize(
+    count = n(),
+    win_pct_pred = mean(1 / (10^(-favorite_elo_diff / 400) + 1)),
+    win_pct_actual = sum(favorite_point_diff > 0) / count
+  ) %>%
+  ungroup() %>%
+  mutate(error = win_pct_actual - win_pct_pred) %>%
+  ggplot(aes(x = win_pct_pred, y = win_pct_actual, color = error)) +
+  geom_point() +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", alpha = 0.5) +
+  theme_light() +
+  labs(
+    title = "Actual vs. Predicted Win Probability by ELO Difference",
+    x = "Win Probability (Predicted)",
+    y = "Win Probability (Actual)"
+  )
+```
+The plot above confirms that there is a clear relationship between the ELO-estimated win probabilities and the actual outcomes.
+
+## Point Differentials
+
+Next, let's review the raw point differentials as a function of ELO difference.
+
+```{r}
+df_elo_diff %>%
+  ggplot(aes(x = favorite_elo_diff, y = favorite_point_diff)) +
+  geom_point(alpha = 0.05) +
+  geom_density_2d() +
+  theme_light() +
+  labs(
+    title = "Point Difference by ELO Difference",
+    x = "ELO Difference",
+    y = "Point Difference"
+  )
+```
+
+Finally, let's check how the ELO-based spread estimate compares to the actual point differential.
+
+```{r}
+df_elo_diff %>%
+  mutate(point_diff_pred = favorite_elo_diff / 25) %>%
+  ggplot(aes(x = point_diff_pred, y = favorite_point_diff)) +
+  geom_point(alpha = 0.05) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed") +
+  labs(
+    title = "Estimated Spread vs. Actual Point Differential",
+    x = "Predicted Point Differential",
+    y = "Actual Point Differential"
+  )
+```
+
