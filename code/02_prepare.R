@@ -81,6 +81,26 @@ df_elo <- df_elo %>%
 df_elo <- df_elo %>%
   mutate(prob_away = 1 - prob_home)
 
+# Reorganize columns
+df_elo_out <- df_elo %>%
+  select(
+    season,
+    week,
+    date,
+    team_home,
+    team_away,
+    elo_home,
+    elo_away,
+    prob_home,
+    prob_away
+  )
+
+# Save data
+write_parquet(df_elo_out, here("data", "prepared", "df_elo.parquet"))
+
+
+# EXTRACT RESULTS DATA ----------------------------------------------------
+
 # Extract result data
 df_results <- df_elo %>%
   select(season, week, date, team_home, team_away, score_home = score1, score_away = score2) %>%
@@ -108,24 +128,6 @@ df_results <- df_elo %>%
 
 # Write to disk
 write_parquet(df_results, here("data", "prepared", "df_results.parquet"))
-
-
-# Reorganize columns
-df_elo <- df_elo %>%
-  select(
-    season,
-    week,
-    date,
-    team_home,
-    team_away,
-    elo_home,
-    elo_away,
-    prob_home,
-    prob_away
-  )
-
-# Save data
-write_parquet(df_elo, here("data", "prepared", "df_elo.parquet"))
 
 
 # CLEAN DATA - PICK DISTRIBUTIONS ---------------------------------------------
@@ -159,6 +161,7 @@ df_team_stats_weekly <-
   df_elo %>%
   arrange(date) %>%
   group_by(season, week) %>%
+  arrange(team_home, team_away) %>%
   mutate(game_id = 1:n()) %>%
   ungroup() %>%
   arrange(season, week, game_id) %>%
